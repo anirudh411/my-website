@@ -1,14 +1,14 @@
-import { Link, NavLink } from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import React from "react";
 import styled from "styled-components";
-import { ThemeDispatchContext } from "../contexts/theme-context";
-import { TOGGLE_THEME } from "../reducers/consntants";
+import {ThemeDispatchContext} from "../contexts/theme-context";
+import {TOGGLE_THEME} from "../reducers/consntants";
 
 const Nav = styled.nav`
 	width: 100%;
 	display: flex;
 	position:sticky;
-	font-size: 1.2rem;
+	font-size: 1rem;
 	ul {
 		width: 100%;
 		display: flex;
@@ -44,14 +44,12 @@ const Active = styled.div`
 
 
 `
-export default ({ links }) => {
+export default ({links}) => {
 	const dispatch = React.useContext(ThemeDispatchContext);
-	return <Nav class="container">
+	return <Nav className="container">
 		<ul>
-			{links.map(link => <li><NavLink to={link.to}>{link.title}</NavLink></li>)}
-			<li onClick={() => dispatch({ type: TOGGLE_THEME, payload: { isDarkMode: false } })}>Toogle Theme</li>
+			{links.map(link => <li key={link.title}><NavLink to={link.to}>{link.title}</NavLink></li>)}
+			<li onClick={() => dispatch({type: TOGGLE_THEME, payload: {isDarkMode: false}})}>Toogle Theme</li>
 		</ul>
-		<Active className="active" />
-
 	</Nav>
 }
