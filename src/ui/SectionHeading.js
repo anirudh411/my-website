@@ -4,7 +4,7 @@ export const SectionHeading = styled.div`
      font-weight: bold;
      line-height: 1;
    	 padding: .2rem;
-     font-size: 2rem;
+     font-size: 1.5rem;
      border-bottom: 1px solid grey;
 
 `;
@@ -16,7 +16,7 @@ export const Section = styled.section`
     font-weight: bold;
     line-height: 1;
     padding: .2rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   ul {
@@ -57,7 +57,10 @@ export const SectionBody = styled.div`
     
     td:nth-child(1) {
       vertical-align: top;
-      text-align: center;
+      text-align: left;
+    } 
+    td{
+    padding: 0 .2rem;
     }
 
 `;
