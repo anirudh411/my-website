@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import data from "./assets/data";
+import GlobalStyleProvider from "./contexts/GlobalStyle-context";
+import {Switch, BrowserRouter as Router, Route} from "react-router-dom";
+import NavBar from "./ui/NavBar";
+const ResumeContextProvider = React.lazy(() => import("./pages/resume/ResumeContainer"));
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<GlobalStyleProvider>
+			<Router>
+				<div className="container">
+					<NavBar links={[{title: 'Home', to: '/'}, {title: 'About', to: '/about'}]}/>
+					<React.Suspense fallback={null}>
+						<Switch>
+							<Route exact path="/about">
+								<ResumeContextProvider data={data}/>
+							</Route>
+						</Switch>
+					</React.Suspense>
+				</div>
+			</Router>
+		</GlobalStyleProvider>
+	)
 }
 
-export default App;
+export default App
