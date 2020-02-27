@@ -1,16 +1,16 @@
-import styled, { keyframes } from "styled-components";
+import styled, {keyframes} from "styled-components";
 import React from "react";
 
 export const ProgressBar = styled.div`
   width:100%;
   background:${props => props.theme.progress.background};
-  height:1rem;
+  height:.7rem;
   border-radius:20px; 
 `;
 
 function handleProps(props) {
-  let width = `${(props.limit * 100)}%`;
-  return width || '40%';
+	let width = `${(props.limit * 100)}%`;
+	return width || '40%';
 }
 
 const kProgress = (props) => keyframes`
@@ -23,12 +23,10 @@ const kProgress = (props) => keyframes`
     }
 `;
 
-export const ProgressThumb = styled.div`
+export const ProgressThumb = styled(ProgressBar)`
    animation: .4s ease-in 1  forwards ${kProgress} .8s ;
     width:0%;
     background: ${props => props.theme.progress.foreground};
-    height:1rem;
-    border-radius:20px;
     
    @keyframes prg {
     from {
@@ -41,18 +39,17 @@ export const ProgressThumb = styled.div`
 `;
 
 
-export const Progress = ({ maxValue }) => {
-  let progressRef = React.createRef(null);
-  React.useEffect(() => {
-    progressRef.current.addEventListener("animationend", () => {
-      progressRef.current.style.width = handleProps({ limit: maxValue });
-      console.log(progressRef);
-    })
-  }, []);
+export const Progress = ({maxValue}) => {
+	let progressRef = React.createRef(null);
+	React.useEffect(() => {
+		progressRef.current.addEventListener("animationend", () => {
+			progressRef.current.style.width = handleProps({limit: maxValue});
+		})
+	}, []);
 
-  return (
-    <ProgressBar >
-      <ProgressThumb ref={progressRef} className="progress-thumb" limit={maxValue} />
-    </ProgressBar>
-  )
+	return (
+		<ProgressBar>
+			<ProgressThumb ref={progressRef} className="progress-thumb" limit={maxValue}/>
+		</ProgressBar>
+	)
 };

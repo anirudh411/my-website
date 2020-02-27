@@ -53,6 +53,7 @@ export default {
 		{
 			title: 'Projects',
 			logo: 'star',
+			expandable: true,
 			data: [
 
 				{
