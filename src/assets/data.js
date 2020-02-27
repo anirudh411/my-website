@@ -55,19 +55,14 @@ export default {
 			logo: 'star',
 			expandable: true,
 			data: [
-
 				{
 					time: '2019-07-2020',
 					title: 'Nand Ghar (React Native):',
-					subTitle: 'An interactive, real-time interface to process and view the data collected in meaningful format which can be used for Micro-Level Planning. Unlike most dashboards which are custom coded, the DELTA Dashboard is configurable. The users through provided interface could create their own configurable dashboards.',
+					subTitle: 'A multi-lingual Monitoring app',
 					description: {
 						title: '',
 						data: [
 							'Worked on user management and various other modules for the dashboard panel of this project',
-							'Worked on a module similar to google forms where user can create survey forms with various types of questions. Forms can be created in different languages as well as can be  based on geography. They can be assigned to particular user geography wise',
-							'Used data visualization libraries like chart.js, leaflet.js',
-							'Integrated google maps for GIS information.',
-							'Used Angular material for user Interfaces'
 						]
 					}
 				},
