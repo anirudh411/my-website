@@ -118,9 +118,9 @@ export const SkillsContainer = () => {
 		</div>
 		<div className="col-sm-12">
 			<ul>{skills.map((skill) => {
-				return <>
+				return <React.Fragment key={skill.title}>
 					<li className="my-2 pl-0">{skill.title}</li>
-					<Progress maxValue={skill.level}/></>
+					<Progress maxValue={skill.level}/></React.Fragment>
 			})}
 			</ul>
 		</div>
