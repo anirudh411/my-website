@@ -1,13 +1,14 @@
 import React from "react";
 import "./style.scss"
-import {Progress, ProgressBar, ProgressThumb} from "../../ui/ProgressBar";
+import { Progress, ProgressBar, ProgressThumb } from "../../ui/ProgressBar";
 import html2canvas from "html2canvas";
 import * as jsPDF from 'jspdf';
-import {Section, SectionBody, SectionHeading} from "../../ui/SectionHeading";
+import { Section, SectionBody, SectionHeading } from "../../ui/SectionHeading";
+import { useInView } from 'react-intersection-observer'
 
 
 export const ResumeHeader = () => {
-	const {name, designation, headline} = React.useContext(ResumeContext);
+	const { name, designation, headline } = React.useContext(ResumeContext);
 	return (
 		<div className="row flex-column">
 			<div className="col-sm-12">
@@ -19,8 +20,16 @@ export const ResumeHeader = () => {
 };
 
 export const ResumeMainSection = (props) => {
-	const {title, logo, data, expandable = false} = props.data;
+	const { title, logo, data, expandable = false } = props.data;
 	const [isExpanded, setExpanded] = React.useState(false);
+	const [ref, inView, entry] = useInView({
+		/* Optional options */
+		threshold: 0,
+	})
+	React.useEffect(() => {
+		console.log("in view",ref.current);
+	}, [inView])
+
 
 	const handleHeadingClick = (event) => {
 		setExpanded(expanded => !expanded);
@@ -38,17 +47,17 @@ export const ResumeMainSection = (props) => {
 
 
 	return (
-		<Section isExpanded={isExpanded} expandable={expandable} className="row  my-2">
+		<Section ref={ref} isExpanded={isExpanded} expandable={expandable} className="row  my-2">
 			<SectionHeading {...sectionHeadingProps()}
-							className="section--heading col-sm-12 py-1 d-flex align-items-center">
-			<span className="logo">
+				className="section--heading col-sm-12 py-1 d-flex align-items-center">
+				<span className="logo">
 					<i className="material-icons">{logo}</i>
 				</span>
-				<span>{title}</span>
+				<span>{title}{}</span>
 			</SectionHeading>
 			<SectionBody isExpanded={isExpanded}>
 				<table className=" mt-2">
-					{data && data.map(({time, title, subTitle, description}) => <tbody key={title}>
+					{data && data.map(({ time, title, subTitle, description }) => <tbody key={title}>
 						<tr>
 							{time && <td key={time} width="25%"><b>{time}</b></td>}
 							<td className="" key={title} width="75%">
@@ -62,7 +71,7 @@ export const ResumeMainSection = (props) => {
 								</ul>}
 							</td>
 						</tr>
-						</tbody>
+					</tbody>
 					)}
 				</table>
 			</SectionBody>
@@ -71,23 +80,23 @@ export const ResumeMainSection = (props) => {
 
 
 export const ResumeContainer = () => {
-	const {main} = React.useContext(ResumeContext);
+	const { main } = React.useContext(ResumeContext);
 	return (<div id="resume" className="resume">
-			<div className="row">
-				<main className="col-sm-8">
-					<ResumeHeader/>
-					{main.map(section => <ResumeMainSection key={section.title} data={section}/>)}
-				</main>
-				<aside className="col ml-3 info col-sm">
-					<PersonalInformation/>
-					<SkillsContainer/>
-				</aside>
-			</div>
+		<div className="row">
+			<main className="col-sm-8">
+				<ResumeHeader />
+				{main.map(section => <ResumeMainSection key={section.title} data={section} />)}
+			</main>
+			<aside className="col ml-3 info col-sm">
+				<PersonalInformation />
+				<SkillsContainer />
+			</aside>
 		</div>
+	</div>
 	)
 };
 export const PersonalInformation = () => {
-	const {personal_information} = React.useContext(ResumeContext);
+	const { personal_information } = React.useContext(ResumeContext);
 	return <div className="row ">
 		<div className="col-sm-12 d-flex align-items-center info--header">
 			<span className="logo">
@@ -96,7 +105,7 @@ export const PersonalInformation = () => {
 			<span>Personal Info</span>
 		</div>
 		<div className="col-sm-12">
-			{personal_information.data.length && personal_information.data.map(({title, description}) => {
+			{personal_information.data.length && personal_information.data.map(({ title, description }) => {
 				return <div key={title} className="my-2">
 					<div><b>{title}</b></div>
 					<div className="text-w">{description}</div>
@@ -108,7 +117,7 @@ export const PersonalInformation = () => {
 };
 
 export const SkillsContainer = () => {
-	const {skills} = React.useContext(ResumeContext);
+	const { skills } = React.useContext(ResumeContext);
 	return <section className="row section skills-container">
 		<div className="col-sm-12 py-1 my-4 d-flex align-items-center info--header">
 			<span className="logo">
@@ -120,7 +129,7 @@ export const SkillsContainer = () => {
 			<ul>{skills.map((skill) => {
 				return <React.Fragment key={skill.title}>
 					<li className="my-2 pl-0">{skill.title}</li>
-					<Progress maxValue={skill.level}/></React.Fragment>
+					<Progress maxValue={skill.level} /></React.Fragment>
 			})}
 			</ul>
 		</div>
@@ -129,7 +138,7 @@ export const SkillsContainer = () => {
 
 const ResumeContext = React.createContext();
 
-export default ({children, data}) => {
+export default ({ children, data }) => {
 	if (data) {
 		return <ResumeContext.Provider value={data}>
 			<div className="row">
@@ -140,9 +149,9 @@ export default ({children, data}) => {
 						var opt = {
 							margin: 0,
 							filename: 'myfile.pdf',
-							image: {type: 'jpeg', quality: .98},
-							html2canvas: {scale: 1.2},
-							jsPDF: {unit: 'px', format: 'a4', orientation: 'p'}
+							image: { type: 'jpeg', quality: .98 },
+							html2canvas: { scale: 1.2 },
+							jsPDF: { unit: 'px', format: 'a4', orientation: 'p' }
 						};
 						html2canvas(element).then(function (canvas) {
 							var pdf = new jsPDF("in", "pt", [canvas.width, canvas.height]);
@@ -156,7 +165,7 @@ export default ({children, data}) => {
 					</button>
 				</div>
 				<div className="col">
-					<ResumeContainer/>
+					<ResumeContainer />
 				</div>
 
 			</div>
