@@ -46,8 +46,7 @@ export default {
 
 						]
 					}
-				}
-			],
+				}],
 		},
 
 		{
@@ -128,6 +127,7 @@ export default {
 			],
 		},
 	],
+
 	skills: [
 		{
 			title: 'Javascript (ES6 and above)',
