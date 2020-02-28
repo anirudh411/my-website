@@ -20,11 +20,11 @@ if (!dev) {
 	app.use(morgan('common'));
 	app.use(express.static(path.resolve(__dirname, 'build')));
 	app.get("*", (req, res) => {
-		fs.readFile(path.resolve(__dirname, 'build', 'index.html'), "uft-8", (err, data) => {
+		/*fs.readFile(path.resolve(__dirname, 'build', 'index.html'), "uft-8", (err, data) => {
 			if (err) return res.status(500).send("Some error Occured");
 			return res.send(data.replace('<div id="root"></div>', `<div>${ReactDomServer.renderToString(data)}</div>`))
-		});
-		//res.sendFile(path.resolve(__dirname, "build", 'index.html'));
+		});*/
+		res.sendFile(path.resolve(__dirname, "build", 'index.html'));
 	});
 }
 if (dev) {
