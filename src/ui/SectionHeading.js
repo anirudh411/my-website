@@ -4,7 +4,7 @@ export const SectionHeading = styled.div`
      font-weight: bold;
      line-height: 1;
    	 padding: .2rem;
-     font-size: 1.5rem;
+     font-size: 22px;
      border-bottom: 1px solid grey;
 
 `;
@@ -53,6 +53,7 @@ export const SectionBody = styled.div`
     max-height:${props => !props.isExpanded ? '30rem' : '100rem'};
     overflow: ${props => !props.isExpanded ? 'overlay' : 'hidden'};
     overflow-x: hidden;
+    font-size: 15px;
     transition:  max-height .6s,overflow 1s linear 2s;
     
     td:nth-child(1) {

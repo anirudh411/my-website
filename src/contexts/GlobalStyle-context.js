@@ -6,7 +6,8 @@ const GlobalStyle = createGlobalStyle`
   body {
      background: ${props => props.theme.background};
      color: ${props => props.theme.textColor};
-      transition: background-color 600ms ease;   
+      transition: background-color 600ms ease;
+      font-size: 16px;
   }
     ::-webkit-scrollbar-thumb,::-webkit-scrollbar-track,::-webkit-scrollbar{
       background:${props => props.theme.textColor};
