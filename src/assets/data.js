@@ -40,7 +40,7 @@ export default {
 					description: {
 						title: 'Responsibilities:',
 						data: [
-							'Design and developed multiples user interfaces .',
+							//'Design and developed multiples user interfaces .',
 							'Implemented various new features and added new enhancements for multiple projects.',
 							'Lead the front-end development team for a project.'
 
@@ -52,7 +52,7 @@ export default {
 		{
 			title: 'Projects',
 			logo: 'star',
-			expandable: true,
+			expandable: false,
 			data: [
 				{
 					time: '2019-07-2020',
