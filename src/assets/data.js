@@ -178,21 +178,13 @@ export const data = [
 	},
 	{
 		type: 'section',
-		text: 'Experience',
+		text: ['Experience'],
 		fontWeight: 'bold',
 		leftIcon: 'business_center'
 	},
 	{
 		type: 'h4',
-		text: ['2018-Present']
-	},
-	{
-		type: 'h4',
-		text: ['Full-Stack Developer']
-	},
-	{
-		type: 'h4',
-		text: ['Dhwani Rural Information System']
+		text: ['2018-Present', 'Full-Stack Developer', 'Dhwani Rural Information System']
 	},
 	{
 		type: 'p',
@@ -205,5 +197,37 @@ export const data = [
 		text: [
 			'Implemented various new features and added new enhancements for multiple projects',
 			'Lead the front-end development team for a project']
+	},
+	{
+		type: 'section',
+		text: ['Projects'],
+		fontWeight: 'bold',
+		leftIcon: 'star'
+	},
+	{
+		type: 'h4',
+		text: ['2019-07-2020', 'Nand Ghar (React Native):']
+	},
+	{
+		type: 'p',
+		fontWeight: 'bold',
+		text: ['A multi-lingual Monitoring app', 'Worked on user management and various other modules for the dashboard panel of this project',]
+	},
+	{
+		type: 'h4',
+		text: ['2018-10-2019-10', 'Delta Development Corridor (Angular) :'],
+	},
+	{
+		type: "p",
+		text: ['An interactive, real-time interface to process and view the data collected in meaningful format which can be used for Micro-Level Planning. Unlike most dashboards which are custom coded, the DELTA Dashboard is configurable. The users through provided interface could create their own configurable dashboards.'],
+	}, {
+		type: "p",
+		text: [
+			'Worked on user management and various other modules for the dashboard panel of this project',
+			'Worked on a module similar to google forms where user can create survey forms with various types of questions. Forms can be created in different languages as well as can be  based on geography. They can be assigned to particular user geography wise',
+			'Used data visualization libraries like chart.js, leaflet.js',
+			'Integrated google maps for GIS information.',
+			'Used Angular material for user Interfaces'
+		]
 	}
 ];
