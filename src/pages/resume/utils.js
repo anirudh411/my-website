@@ -1,4 +1,4 @@
-function getMainSectionExceedingMaxCharacters(obj, maximum) {
+function getMinimumVisibleKeyPathPerPage(obj, maximum) {
 	let count = 0;
 	let mainSectionAtMaximumCharacters = [];
 
@@ -28,5 +28,5 @@ function getMainSectionExceedingMaxCharacters(obj, maximum) {
 
 
 export {
-	getMainSectionExceedingMaxCharacters
+	getMinimumVisibleKeyPathPerPage
 }

@@ -161,3 +161,49 @@ export default {
 		}
 	]
 }
+
+
+export const data = [
+	{
+		type: 'h1',
+		text: ['Anirudh Kumar']
+	},
+	{
+		type: 'h2',
+		text: ['SOFTWARE ENGINEER']
+	},
+	{
+		type: 'p',
+		text: ['A Software engineer looking for a innovative and challenging environment where I can excel my skills with maximum potential for the benefit for the organisation as well as my self .']
+	},
+	{
+		type: 'section',
+		text: 'Experience',
+		fontWeight: 'bold',
+		leftIcon: 'business_center'
+	},
+	{
+		type: 'h4',
+		text: ['2018-Present']
+	},
+	{
+		type: 'h4',
+		text: ['Full-Stack Developer']
+	},
+	{
+		type: 'h4',
+		text: ['Dhwani Rural Information System']
+	},
+	{
+		type: 'p',
+		fontWeight: 'bold',
+		text: ['Responsibilities']
+	},
+	{
+		type: 'p',
+		fontWeight: 'bold',
+		text: [
+			'Implemented various new features and added new enhancements for multiple projects',
+			'Lead the front-end development team for a project']
+	}
+];

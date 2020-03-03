@@ -2,14 +2,15 @@ import React from "react";
 import "./style.scss"
 import html2canvas from "html2canvas";
 import * as jsPDF from 'jspdf';
-import {Section, SectionBody, SectionHeading} from "../../ui/SectionHeading";
-import {List} from "immutable"
-import {getMainSectionExceedingMaxCharacters} from "./utils";
-import {Progress} from "../../ui/ProgressBar";
+import { Section, SectionBody, SectionHeading } from "../../ui/SectionHeading";
+import { List, Map } from "immutable"
+import { getMinimumVisibleKeyPathPerPage } from "./utils";
+import { Progress } from "../../ui/ProgressBar"
+import { data } from "../../assets/data";
 
 
 export const ResumeHeader = () => {
-	const {name, designation, headline} = React.useContext(ResumeContext);
+	const { name, designation, headline } = React.useContext(ResumeContext);
 	return (
 		<div className="row flex-column">
 			<div className="col-sm-12">
@@ -21,7 +22,7 @@ export const ResumeHeader = () => {
 };
 
 export const ResumeMainSection = (props) => {
-	const {title, logo, data, expandable = false} = props.data;
+	const { title, logo, data, expandable = false } = props.data;
 	const [isExpanded, setExpanded] = React.useState(true);
 
 
@@ -42,7 +43,7 @@ export const ResumeMainSection = (props) => {
 	return (
 		<Section isExpanded={isExpanded} expandable={expandable} className="row  my-2">
 			<SectionHeading {...sectionHeadingProps()}
-							className="section--heading col-sm-12 py-1 d-flex align-items-center">
+				className="section--heading col-sm-12 py-1 d-flex align-items-center">
 				<span className="logo">
 					<i className="material-icons">{logo}</i>
 				</span>
@@ -50,7 +51,7 @@ export const ResumeMainSection = (props) => {
 			</SectionHeading>
 			<SectionBody isExpanded={isExpanded}>
 				<div className="row mt-2">
-					{data && data.map(({time, title, subTitle, description}) =>
+					{data && data.map(({ time, title, subTitle, description }) =>
 						(<div key={title} className="col-sm-12">
 							{time && <b key={time}>{time}</b>}
 							<div className="row" key={title}>
@@ -64,9 +65,9 @@ export const ResumeMainSection = (props) => {
 									<b>{description.title}</b>
 								</div>}
 								{(description && (description.data && description.data.length)) &&
-								<ul className="col-sm=12 pl-3">
-									{description.data.map(item => <li key={item}>{item}</li>)}
-								</ul>}
+									<ul className="col-sm=12 pl-3">
+										{description.data.map(item => <li key={item}>{item}</li>)}
+									</ul>}
 							</div>
 						</div>)
 					)}
@@ -77,44 +78,88 @@ export const ResumeMainSection = (props) => {
 
 
 export const ResumeContainer = () => {
-		let {main} = React.useContext(ResumeContext);
-		let visibleContent = List(main);
-		const visibleContentKeysArray = getMainSectionExceedingMaxCharacters(main, 118);
-		if (visibleContentKeysArray.length) {
-			visibleContent = visibleContent.slice(0, visibleContentKeysArray[0] + 1);
-			for (let i = 1; i < visibleContentKeysArray.length; i++) {
-				let keyPath = visibleContentKeysArray.slice(0, i);
-				if (!isNaN(visibleContentKeysArray[i])) {
-					let arr = visibleContent.getIn(keyPath);
-					arr = arr.slice(0, +visibleContentKeysArray[i] + 1);
-					visibleContent = visibleContent.setIn(
-						keyPath,
-						arr
-					);
-				} else if ((i === visibleContentKeysArray.length - 1) && isNaN(visibleContentKeysArray[i])) {
-					const {description, rest} = visibleContent.getIn(keyPath)[visibleContentKeysArray[i]]
-					visibleContent = visibleContent.setIn(keyPath, {...rest, description: {}});
-				}
+	let { main } = React.useContext(ResumeContext);
+	let totalContent = List(main);
+	const visibleContentKeysArray = getMinimumVisibleKeyPathPerPage(main, 118);
+	let overflowContent = List();
+	let visibleContent = List();
+	let removedContent = List();
+	if (visibleContentKeysArray.length) {
+		visibleContent = totalContent.slice(0, visibleContentKeysArray[0] + 1);
+		overflowContent = totalContent.slice(visibleContentKeysArray[0]);
+		removedContent = List(visibleContent);
+		for (let i = 1; i < visibleContentKeysArray.length; i++) {
+			let keyPath = visibleContentKeysArray.slice(0, i);
+			if (!isNaN(visibleContentKeysArray[i])) {
+				let arr = totalContent.getIn(keyPath);
+				arr = arr.slice(0, +visibleContentKeysArray[i] + 1);
+				let upto = 0;
+				if (i === visibleContentKeysArray.length - 1) upto = 1;
+				removedContent = removedContent.setIn(keyPath, visibleContent.getIn(keyPath).slice(+visibleContentKeysArray[i] + upto));
+				visibleContent = visibleContent.setIn(keyPath, arr);
+			} else if ((i === visibleContentKeysArray.length - 1) && isNaN(visibleContentKeysArray[i])) {
+				const { description, rest } = totalContent.getIn(keyPath)[visibleContentKeysArray[i]];
+				visibleContent = visibleContent.setIn(keyPath, { ...rest, description: {} });
+				removedContent = removedContent.setIn(keyPath, { description });
 			}
 		}
-
-		return (<div id="resume" className="resume">
-				<div className="row">
-					<main className="col-sm-8">
-						<ResumeHeader/>
-						{visibleContent.map(section => <ResumeMainSection key={section.title} data={section}/>)}
-					</main>
-					<aside className="col ml-3 info col-sm">
-						<PersonalInformation/>
-						<SkillsContainer/>
-					</aside>
-				</div>
-			</div>
-		)
 	}
-;
+	let lastVisibleObject = Map(removedContent.get(removedContent.size - 1))
+	console.log(lastVisibleObject.toJS(), visibleContentKeysArray);
+
+
+	return (<div id="resume" className="resume">
+		<div className="row">
+			<main className="col-sm-8">
+				{data.map((item, index) => {
+					switch (item.type) {
+						case "h1":
+							return <div key={index} className="row flex-column">
+								<div className="col-sm-12">
+									{item.text.map((text, i) => <h1 key={i} className="m-0">{text}</h1>)}
+								</div>
+							</div>
+
+						case "h2":
+							return <div key={index} className="row flex-column">
+								<div className="col-sm-12">
+									{item.text.map((text, i) => <h2 key={i} className="m-0">{text}</h2>)}
+								</div>
+							</div>
+						case "h3":
+							return item.text.map((text, i) => <h3 key={index} className="resume-headline">{text}</h3>);
+						case "h4":
+							return item.text.map((text, i) => <h4 key={index} className="resume-headline">{text}</h4>);
+						default: return null;
+						case "section":
+							return <Section key={index}>
+								<SectionHeading className="section--heading col-sm-12 py-1 d-flex align-items-center">
+									<span className="logo">
+										<i className="material-icons">{item.leftIcon}</i>
+									</span>
+									<span>{item.text}</span>
+								</SectionHeading>
+							</Section>
+						case "p":
+							return item.text.map((text, i) => <p key={index} className="resume-headline m-0">{text}</p>);
+					}
+				})}
+
+
+				{/*	<ResumeHeader/>
+						{visibleContent.map(section => <ResumeMainSection key={section.title} data={section}/>)}*/}
+			</main>
+			<aside className="col ml-3 info col-sm">
+				<PersonalInformation />
+				<SkillsContainer />
+			</aside>
+		</div>
+	</div>
+	)
+}
+	;
 export const PersonalInformation = () => {
-	const {personal_information} = React.useContext(ResumeContext);
+	const { personal_information } = React.useContext(ResumeContext);
 	return <div className="row resume-body">
 		<div className="col-sm-12 d-flex align-items-center info--header">
 			<span className="logo">
@@ -123,7 +168,7 @@ export const PersonalInformation = () => {
 			<span>Personal Info</span>
 		</div>
 		<div className="col-sm-12">
-			{personal_information.data.length && personal_information.data.map(({title, description}) => {
+			{personal_information.data.length && personal_information.data.map(({ title, description }) => {
 				return (
 					<div key={title} className="my-2">
 						<div><b>{title}</b></div>
@@ -137,7 +182,7 @@ export const PersonalInformation = () => {
 };
 
 export const SkillsContainer = () => {
-	const {skills} = React.useContext(ResumeContext);
+	const { skills } = React.useContext(ResumeContext);
 	return <section className="row section skills-container ">
 		<div className="col-sm-12 py-1 my-4 d-flex align-items-center info--header">
 			<span className="logo">
@@ -149,7 +194,7 @@ export const SkillsContainer = () => {
 			<ul>{skills.map((skill) => {
 				return <React.Fragment key={skill.title}>
 					<li className="my-2 pl-0">{skill.title}</li>
-					<Progress maxValue={skill.level}/></React.Fragment>
+					<Progress maxValue={skill.level} /></React.Fragment>
 			})}
 			</ul>
 		</div>
@@ -158,7 +203,7 @@ export const SkillsContainer = () => {
 
 const ResumeContext = React.createContext();
 
-export default ({children, data}) => {
+export default ({ children, data }) => {
 	if (data) {
 		return <ResumeContext.Provider value={data}>
 			<div className="row">
@@ -169,9 +214,9 @@ export default ({children, data}) => {
 						var opt = {
 							margin: 0,
 							filename: 'myfile.pdf',
-							image: {type: 'jpeg', quality: .98},
-							html2canvas: {scale: 1.2},
-							jsPDF: {unit: 'px', format: 'a4', orientation: 'p'}
+							image: { type: 'jpeg', quality: .98 },
+							html2canvas: { scale: 1.2 },
+							jsPDF: { unit: 'px', format: 'a4', orientation: 'p' }
 						};
 						html2canvas(element).then(function (canvas) {
 							var pdf = new jsPDF("in", "pt", [canvas.width, canvas.height]);
@@ -185,7 +230,7 @@ export default ({children, data}) => {
 					</button>
 				</div>
 				<div className="col">
-					<ResumeContainer/>
+					<ResumeContainer />
 				</div>
 
 			</div>
