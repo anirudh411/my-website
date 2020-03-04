@@ -189,13 +189,7 @@ export const data = [
 	{
 		type: 'p',
 		fontWeight: 'bold',
-		text: ['Responsibilities']
-	},
-	{
-		type: 'p',
-		fontWeight: 'bold',
-		text: [
-			'Implemented various new features and added new enhancements for multiple projects',
+		text: ['Responsibilities :', 'Implemented various new features and added new enhancements for multiple projects',
 			'Lead the front-end development team for a project']
 	},
 	{
@@ -206,28 +200,40 @@ export const data = [
 	},
 	{
 		type: 'h4',
+		text: ['2020-current', '[City Finance (Angular) ](https://democityfinance.dhwaniris.in/)'],
+		link: ''
+	},
+	{
+		type: 'p',
+		fontWeight: 'bold',
+		text: ['An initiative of Ministry of Housing and Urban Affairs,Government of India]', 'Worked on the dashboard panel of this project.',]
+
+	},
+	{
+		type: 'h4',
 		text: ['2019-07-2020', 'Nand Ghar (React Native):']
 	},
 	{
 		type: 'p',
 		fontWeight: 'bold',
-		text: ['A multi-lingual Monitoring app', 'Worked on user management and various other modules for the dashboard panel of this project',]
+		text: ['A multi-lingual Monitoring app', 'Worked on user management and various other modules for the dashboard panel of this project.',]
 	},
 	{
 		type: 'h4',
-		text: ['2018-10-2019-10', 'Delta Development Corridor (Angular) :'],
+		text: ['2018-10-2019-7', 'Delta Development Corridor (Angular) :'],
 	},
 	{
 		type: "p",
 		text: ['An interactive, real-time interface to process and view the data collected in meaningful format which can be used for Micro-Level Planning. Unlike most dashboards which are custom coded, the DELTA Dashboard is configurable. The users through provided interface could create their own configurable dashboards.'],
-	}, {
+	},
+	{
 		type: "p",
 		text: [
 			'Worked on user management and various other modules for the dashboard panel of this project',
 			'Worked on a module similar to google forms where user can create survey forms with various types of questions. Forms can be created in different languages as well as can be  based on geography. They can be assigned to particular user geography wise',
 			'Used data visualization libraries like chart.js, leaflet.js',
 			'Integrated google maps for GIS information.',
-			'Used Angular material for user Interfaces'
+			'Used Angular material for user Interfaces',
 		]
-	}
+	},
 ];

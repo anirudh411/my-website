@@ -88,80 +88,89 @@ function lastDataIndex(n) {
 		}
 	}
 	pageIndex.push(data.length);
-	console.log(pageIndex);
 	return pageIndex;
+}
+
+function Text({text}) {
+	function handleTextOnHover() {
+	}
+	const str = text;
+	let simpleText = text;
+	let link = '';
+	if (str[0] === "[" && str[str.lastIndexOf("]") + 1] === "(") {
+		simpleText = simpleText.substring(1, str.lastIndexOf("]"));
+		link = text.substring(str.lastIndexOf("]") + 2, str.length - 2);
+	}
+	if (link) return <a  title={simpleText} onMouseEnter={handleTextOnHover} target="_blank" href={link}>{simpleText} </a>
+	else return simpleText;
 }
 
 
 export const ResumeContainer = () => {
 		let {main} = React.useContext(ResumeContext);
-		let totalPages = lastDataIndex(140);
-		console.log(totalPages);
+		let totalPages = lastDataIndex(220);
+		return totalPages.map((sliceValue, index, arr) => {
+			let dataArray = [];
+			if (index === 0) {
+				dataArray = data.slice(0, arr[1]);
+			} else if (index === arr.length - 1) return null;
+			else dataArray = data.slice(arr[index], arr[index + 1]);
+			return <div className="row resume">
+				<main className="col-sm-8">
+					{dataArray.map((item, index) => {
+						switch (item.type) {
+							case "h1":
+								return <div key={index} className="row flex-column">
+									<div className="col-sm-12">{
+										item.text.map((text, i) => <h1 key={i}
+																	   className="m-0">{text}</h1>)}
+									</div>
+								</div>;
+
+							case "h2":
+								return <div key={index} className="row flex-column mb-1">
+									<div className="col-sm-12">
+										{item.text.map((text, i) => <h2 key={i} className="mb-1">{text}</h2>)}
+									</div>
+								</div>;
+							case "h3":
 
 
-		return (<div id="resume" className="">
-				<div className="row ">
-					<div className="col-sm-8">
-						<div className="row">
-							{totalPages.map((sliceValue, index, arr) => {
-								let dataArray = [];
-								if (index == 0) {
-									dataArray = data.slice(0, arr[1]);
-								} else if (index == arr.length - 1) return null;
-								else dataArray = data.slice(arr[index], arr[index + 1]);
-								return <main className="resume col-sm-12">
-									{dataArray.map((item, index) => {
-										switch (item.type) {
-											case "h1":
-												return <div key={index} className="row flex-column">
-													<div className="col-sm-12">
-														{item.text.map((text, i) => <h1 key={i}
-																						className="m-0">{text}</h1>)}
-													</div>
-												</div>
-
-											case "h2":
-												return <div key={index} className="row flex-column">
-													<div className="col-sm-12">
-														{item.text.map((text, i) => <h2 key={i}
-																						className="m-0">{text}</h2>)}
-													</div>
-												</div>
-											case "h3":
-												return item.text.map((text, i) => <h3 key={index}
-																					  className="resume-headline">{text}</h3>);
-											case "h4":
-												return item.text.map((text, i) => <h4 key={index}
-																					  className=" mt-1 resume-headline">{text}</h4>);
-											default:
-												return null;
-											case "section":
-												return <Section key={index}>
-													<SectionHeading
-														className="section--heading col-sm-12 py-1 d-flex align-items-center">
+								return item.text.map((text, i) => <h3 key={i} className="resume-headline">{text}</h3>);
+							case "h4":
+								return <div className="mt-3 mb-0" key={index}>
+									{item.text.map((text, i) => <h4 key={i}
+																	className="resume-headline m-0"><Text text={text}/>
+									</h4>)}
+								</div>
+							default:
+								return null;
+							case "section":
+								return <Section key={index}>
+									<SectionHeading
+										className="section--heading col-sm-12 mb-2 py-1 d-flex align-items-center">
 									<span className="logo">
 										<i className="material-icons">{item.leftIcon}</i>
 									</span>
-														<span>{item.text}</span>
-													</SectionHeading>
-												</Section>
-											case "p":
-												return item.text.map((text, i) => <p key={index}
-																					 className="resume-headline ">{text}</p>);
-										}
-									})}
-								</main>
-							})
-							}
-						</div>
-					</div>
-					<aside className="col ml-3 info col-sm position-sticky align-top">
-						<PersonalInformation/>
-						<SkillsContainer/>
-					</aside>
-				</div>
+										<span>{item.text}</span>
+									</SectionHeading>
+								</Section>;
+							case "p":
+								return <div key={index} className="row my-2">
+									{item.text.map((text, i) => <p key={i}
+																   className="col-sm-12 m-0 resume-headline ">{text}</p>)}
+								</div>
+
+						}
+					})}
+				</main>
+				{index == 0 && <aside className="col ml-3 info col-sm position-sticky align-top">
+					<PersonalInformation/>
+					<SkillsContainer/>
+				</aside>}
 			</div>
-		)
+		})
+
 	}
 ;
 export const PersonalInformation = () => {
