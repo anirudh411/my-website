@@ -7,6 +7,7 @@ import {List, Map} from "immutable"
 import {getMinimumVisibleKeyPathPerPage} from "./utils";
 import {Progress} from "../../ui/ProgressBar"
 import {data} from "../../assets/data";
+import {StyledText} from "../../ui/Text";
 
 
 export const ResumeHeader = () => {
@@ -92,17 +93,26 @@ function lastDataIndex(n) {
 }
 
 function Text({text}) {
+
 	function handleTextOnHover() {
 	}
+
+	let body = '';
 	const str = text;
 	let simpleText = text;
 	let link = '';
-	if (str[0] === "[" && str[str.lastIndexOf("]") + 1] === "(") {
+	const condition = str[0] === "[" && str[str.lastIndexOf("]") + 1] === "(";
+	if (condition) {
 		simpleText = simpleText.substring(1, str.lastIndexOf("]"));
 		link = text.substring(str.lastIndexOf("]") + 2, str.length - 2);
 	}
-	if (link) return <a  title={simpleText} onMouseEnter={handleTextOnHover} target="_blank" href={link}>{simpleText} </a>
-	else return simpleText;
+	if (link) {
+		body = <a title={simpleText} onMouseEnter={handleTextOnHover} target="_blank"
+				  href={link}>{simpleText} </a>;
+	} else {
+		body = <StyledText>{simpleText}</StyledText>;
+	}
+	return body;
 }
 
 
