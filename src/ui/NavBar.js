@@ -3,6 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import {ThemeDispatchContext} from "../contexts/theme-context";
 import {TOGGLE_THEME} from "../reducers/consntants";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const Nav = styled.nav`
 	width: 100%;
@@ -46,10 +47,15 @@ const Active = styled.div`
 `
 export default ({links}) => {
 	const dispatch = React.useContext(ThemeDispatchContext);
+	const [inDarkMode, setDarkMode] = useLocalStorage('inDarkMode', false);
+
 	return <Nav className="container">
 		<ul>
 			{links.map(link => <li key={link.title}><NavLink to={link.to}>{link.title}</NavLink></li>)}
-			<li onClick={() => dispatch({type: TOGGLE_THEME, payload: {isDarkMode: false}})}>Toogle Theme</li>
+			<li onClick={() => {
+				setDarkMode(inDarkMode => !inDarkMode);
+				dispatch({type: TOGGLE_THEME, payload: {inDarkMode}})
+			}}>Toggle Theme</li>
 		</ul>
 	</Nav>
 }

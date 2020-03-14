@@ -71,7 +71,7 @@ export const data = [
 	},
 	{
 		type: 'p',
-		text: ['A Software engineer looking for a innovative and challenging environment where I can excel my skills with maximum potential for the benefit for the organisation as well as my self .']
+		text: ['A Software engineer looking for a innovative and challenging environment where I can excel my skills with maximum potential for the benefit for the organisation as well as my self.']
 	},
 	{
 		type: 'section',
@@ -91,9 +91,9 @@ export const data = [
 		type: 'p',
 		fontWeight: 'bold',
 		text: [
-			'Responsibilities :',
-			'Implemented various new features and added new enhancements for multiple projects',
-			'Lead the front-end development team for a project']
+			'<b><i>Responsibilities :</i></b>',
+			'Implemented various new features and added new enhancements for multiple projects.',
+			'Lead the front-end development team projects.']
 	},
 	{
 		type: 'section',
@@ -110,9 +110,9 @@ export const data = [
 		type: 'p',
 		fontWeight: 'bold',
 		text: [
-			'An initiative of Ministry of Housing and Urban Affairs,Government of India',
+			'An initiative of Ministry of Housing and Urban Affairs,<b>Government of India</b>',
 			'Worked on the dashboard panel of this project.',
-			'Used chart.js,leaflet.js ,angular material etc.'
+			'Used <b>chart.js,leaflet.js ,angular material</b> etc.'
 		]
 
 	},
@@ -123,15 +123,15 @@ export const data = [
 	{
 		type: 'p',
 		fontWeight: 'bold',
-		text: ['Nand Ghar, a first of its kind PPP model, in partnership with the government has potential to be a movement for a holistic approach towards child care and women empowerment',
+		text: ['Nand Ghar, a first of its kind PPP model, in partnership with the government has potential to be a movement for a holistic approach towards child care and women empowerment.',
 		]
 	},
 	{
 		type: "p",
 		text: [
-			'Implemented various features like language support,geolocation capture',
-			'Created custom UI components',
-			'Added offline first support'],
+			'Implemented various features like language <b> support, location capture</b>, syncing, etc',
+			'Created custom UI components.',
+			'Added offline first support.'],
 	},
 	{
 		type: 'h4',
@@ -139,16 +139,16 @@ export const data = [
 	},
 	{
 		type: "p",
-		text: ['An interactive, real-time interface to process and view the data collected in meaningful format which can be used for Micro-Level Planning. Unlike most dashboards which are custom coded, the DELTA Dashboard is configurable. The users through provided interface could create their own configurable dashboards.'],
+		text: ['An interactive, <b>real-time interface</b> to process and view the data collected in meaningful format which can be used for Micro-Level Planning. Unlike most dashboards which are custom coded, the DELTA Dashboard is configurable. The users through provided interface could create their own configurable dashboards.'],
 	},
 	{
 		type: "p",
 		text: [
-			'Worked on user management and various other modules for the dashboard panel of this project',
-			'Worked on a module similar to google forms where user can create survey forms with various types of questions. Forms can be created in different languages as well as can be  based on geography. They can be assigned to particular user geography wise',
-			'Used data visualization libraries like chart.js, leaflet.js',
+			'Worked on user management and various other modules for the dashboard panel of this project.',
+			'<b>Worked on a module similar to google forms where user can create survey forms with various types of questions.Forms can be created in different languages as well as can be based on geography. They can be assigned to particular user geography wise.</b>',
+			'Used data visualization libraries like chart.js, leaflet.js.',
 			'Integrated google maps for GIS information.',
-			'Used Angular material for user Interfaces',
+			'Used Angular material for user Interfaces.',
 		]
 	},
 	{
@@ -157,13 +157,13 @@ export const data = [
 	},
 	{
 		type: "p",
-		text: ['Bridging the online gender divide in rural India'],
+		text: ['Bridging the online gender divide in rural India.'],
 	},
 	{
 		type: "p",
 		text: [
 			'Worked on user management module for the dashboard panel of this project.',
-			'Used various data visualization libraries like chart.js, leaflet.js, Highchart.js on large data sets throughout the project'
+			'Used various data visualization libraries like chart.js, leaflet.js, HighChart.js on large data sets throughout the project.'
 		]
 	},
 ];

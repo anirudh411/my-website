@@ -4,7 +4,7 @@ import light, {dark} from "../themes";
 function themeReducer(state, action) {
 	switch (action.type) {
 		case TOGGLE_THEME:
-			if (action.payload.isDarkMode) {
+			if (action.payload.inDarkMode) {
 				return {
 					...state,
 					theme: dark
@@ -12,9 +12,8 @@ function themeReducer(state, action) {
 			} else {
 				return {
 					...state,
-					theme: dark
-				}
-					;
+					theme: light
+				};
 			}
 	}
 	return {

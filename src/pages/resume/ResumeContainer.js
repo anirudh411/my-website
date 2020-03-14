@@ -1,10 +1,9 @@
 import React from "react";
 import "./style.scss"
 import html2canvas from "html2canvas";
+import html2pdf from "html2pdf.js";
 import * as jsPDF from 'jspdf';
 import {Section, SectionBody, SectionHeading} from "../../ui/SectionHeading";
-import {List, Map} from "immutable"
-import {getMinimumVisibleKeyPathPerPage} from "./utils";
 import {Progress} from "../../ui/ProgressBar"
 import {data} from "../../assets/data";
 import {StyledText} from "../../ui/Text";
@@ -110,22 +109,23 @@ function Text({text}) {
 		body = <a title={simpleText} onMouseEnter={handleTextOnHover} target="_blank"
 				  href={link}>{simpleText} </a>;
 	} else {
-		body = <StyledText>{simpleText}</StyledText>;
+		body = <StyledText dangerouslySetInnerHTML={{__html: simpleText}}/>;
 	}
 	return body;
 }
 
 
 export const ResumeContainer = () => {
-		let {main} = React.useContext(ResumeContext);
-		let totalPages = lastDataIndex(220);
-		return totalPages.map((sliceValue, index, arr) => {
-			let dataArray = [];
-			if (index === 0) {
-				dataArray = data.slice(0, arr[1]);
-			} else if (index === arr.length - 1) return null;
-			else dataArray = data.slice(arr[index], arr[index + 1]);
-			return <div className="row resume">
+	let {main} = React.useContext(ResumeContext);
+	let totalPages = lastDataIndex(220);
+	return totalPages.map((sliceValue, index, arr) => {
+		let dataArray = [];
+		if (index === 0) {
+			dataArray = data.slice(0, arr[1]);
+		} else if (index === arr.length - 1) return null;
+		else dataArray = data.slice(arr[index], arr[index + 1]);
+		return <>
+			<div className="row resume">
 				<main className="col-sm-8">
 					{dataArray.map((item, index) => {
 						switch (item.type) {
@@ -168,7 +168,8 @@ export const ResumeContainer = () => {
 							case "p":
 								return <div key={index} className="row my-2">
 									{item.text.map((text, i) => <p key={i}
-																   className="col-sm-12 m-0 resume-headline ">{text}</p>)}
+																   className="col-sm-12 m-0 resume-headline"><Text
+										text={text}/></p>)}
 								</div>
 
 						}
@@ -179,10 +180,10 @@ export const ResumeContainer = () => {
 					<SkillsContainer/>
 				</aside>}
 			</div>
-		})
-
-	}
-;
+			{/*<div className="html2pdf__page-break"></div>*/}
+		</>
+	})
+}
 export const PersonalInformation = () => {
 	const {personal_information} = React.useContext(ResumeContext);
 	return <div className="row resume-body">
@@ -233,28 +234,31 @@ export default ({children, data}) => {
 		return <ResumeContext.Provider value={data}>
 			<div className="row">
 				<div className="col-sm-2  d-flex flex-column">
-					<button className="button--sticky-1" onClick={() => {
+					<button onClick={async () => {
+						await window.scrollTo({behavior: "smooth", top: 0});
 						const element = document.getElementById('resume');
 						//var element = document.getEl//ementById('element-to-print');
 						var opt = {
-							margin: 0,
+							// margin: 0,
 							filename: 'myfile.pdf',
-							image: {type: 'jpeg', quality: .98},
-							html2canvas: {scale: 1.2},
-							jsPDF: {unit: 'px', format: 'a4', orientation: 'p'}
+							//image: {type: 'jpeg', quality: 1},
+							enableLinks: true,
+							html2canvas: {scale: 1.1},
+							jsPDF: {unit: 'pt', format: 'a4', orientation: 'p'}
 						};
-						html2canvas(element).then(function (canvas) {
+						html2pdf().from(element).set(opt).save();
+						return
+						/*html2canvas(element).then(function (canvas) {
 							var pdf = new jsPDF("in", "pt", [canvas.width, canvas.height]);
 							var imgData = canvas.toDataURL("image/jpeg", 2.0);
 							pdf.addImage(imgData, 0, 0, canvas.width, canvas.height);
 							pdf.save("report.pdf");
 
-						});
-
+						});*/
 					}}>Download
 					</button>
 				</div>
-				<div className="col">
+				<div id="resume" className="col">
 					<ResumeContainer/>
 				</div>
 
