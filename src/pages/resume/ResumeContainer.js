@@ -7,6 +7,7 @@ import {Section, SectionBody, SectionHeading} from "../../ui/SectionHeading";
 import {Progress} from "../../ui/ProgressBar"
 import {data} from "../../assets/data";
 import {StyledText} from "../../ui/Text";
+import {Button} from "../../ui/button";
 
 
 export const ResumeHeader = () => {
@@ -234,7 +235,7 @@ export default ({children, data}) => {
 		return <ResumeContext.Provider value={data}>
 			<div className="row">
 				<div className="col-sm-2  d-flex flex-column">
-					<button onClick={async () => {
+					<Button outlined onClick={async () => {
 						await window.scrollTo({behavior: "smooth", top: 0});
 						const element = document.getElementById('resume');
 						//var element = document.getEl//ementById('element-to-print');
@@ -256,7 +257,7 @@ export default ({children, data}) => {
 
 						});*/
 					}}>Download
-					</button>
+					</Button>
 				</div>
 				<div id="resume" className="col">
 					<ResumeContainer/>

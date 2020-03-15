@@ -8,7 +8,7 @@ export default {
 	},
 	button: {
 		primary: {
-			text: "#fff",
+			text: "#000",
 			fill: '#6A1B9A',
 			stroke: '#4A148C'
 

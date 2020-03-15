@@ -55,7 +55,8 @@ export default ({links}) => {
 			<li onClick={() => {
 				setDarkMode(inDarkMode => !inDarkMode);
 				dispatch({type: TOGGLE_THEME, payload: {inDarkMode}})
-			}}>Toggle Theme</li>
+			}}>Toggle Theme
+			</li>
 		</ul>
 	</Nav>
 }

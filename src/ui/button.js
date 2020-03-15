@@ -14,9 +14,9 @@ export const Button = styled.button`
 		border-radius: .3rem;
 		cursor: pointer;
 		color: ${props => props.theme.button.primary.text};
-		padding: .6rem 1rem;
+		padding: .1rem .5rem;
 		&:hover {
-		background-color:${props => props.theme.button.primary.stroke};
+		background-color:${props => props.theme.button.primary.stroke+'22'};
 		}
 		
 		
