@@ -118,7 +118,7 @@ function Text({text}) {
 
 export const ResumeContainer = () => {
 	let {main} = React.useContext(ResumeContext);
-	let totalPages = lastDataIndex(220);
+	let totalPages = lastDataIndex(170);
 	return totalPages.map((sliceValue, index, arr) => {
 		let dataArray = [];
 		if (index === 0) {
@@ -241,7 +241,7 @@ export default ({children, data}) => {
 						//var element = document.getEl//ementById('element-to-print');
 						var opt = {
 							// margin: 0,
-							filename: 'myfile.pdf',
+							filename: 'Anirudh Kumar Resume.pdf',
 							//image: {type: 'jpeg', quality: 1},
 							enableLinks: true,
 							html2canvas: {scale: 1.1},

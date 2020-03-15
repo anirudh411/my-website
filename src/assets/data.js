@@ -92,7 +92,9 @@ export const data = [
 		fontWeight: 'bold',
 		text: [
 			'<b><i>Responsibilities :</i></b>',
-			'Implemented various new features and added new enhancements for multiple projects.',
+			'Worked on multiple data incentive projects using technologies like Angular, React, React Native.',
+			'Build re-usable components to facilitate development across projects',
+			'Implemented POC on various ideas and technologies like Survey forms, chat bots, etc.',
 			'Lead the front-end development team projects.']
 	},
 	{
