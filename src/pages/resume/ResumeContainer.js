@@ -62,10 +62,10 @@ export const ResumeMainSection = (props) => {
 								{subTitle && <div className="col-sm-12">
 									<p>{subTitle}</p>
 								</div>}
-								{description.title && <div key={description.title} className="col-sm-12">
+								{description && description.title && <div key={description.title} className="col-sm-12">
 									<b>{description.title}</b>
 								</div>}
-								{(description && (description.data && description.data.length)) &&
+								{(description && (description.data && description.data.length > 0)) &&
 								<ul className="col-sm=12 pl-3">
 									{description.data.map(item => <li key={item}>{item}</li>)}
 								</ul>}
@@ -195,7 +195,7 @@ export const PersonalInformation = () => {
 			<span>Personal Info</span>
 		</div>
 		<div className="col-sm-12">
-			{personal_information.data.length && personal_information.data.map(({title, description}) => {
+			{personal_information.data.length > 0 && personal_information.data.map(({title, description}) => {
 				return (
 					<div key={title} className="my-2">
 						<div><b>{title}</b></div>
