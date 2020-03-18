@@ -17,8 +17,7 @@ class Game extends React.Component {
 		const CANVAS_HEIGHT = 600;
 		let ball;
 		let lines = [];
-		Score.p5 = p;
-		let score = new Score();
+		let score
 		let playButton;
 		let isPlaying = false;
 
@@ -87,15 +86,14 @@ class Game extends React.Component {
 			playButton.parent(this.myRef.current);
 			playButton.mousePressed(function () {
 				toggleGameState();
-
 			});
-
 			p.textAlign(p.CENTER, p.CENTER);
 			Ball.p5 = p;
+			score = new Score();
+			Score.p5 = p;
 			ball = new Ball(100, p.height - 20, 20);
 			for (let i = 0; i < 10; i++) {
 				lines[i] = createBrick();
-
 			}
 			p.background(0);
 		};
