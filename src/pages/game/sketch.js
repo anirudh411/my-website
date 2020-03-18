@@ -1,19 +1,49 @@
 import React from "react";
-import Sketch from "react-p5";
-function Game() {
-   let  x = 50;
-   let y = 50;
+import * as p5 from "p5";
 
-    function setup(p5, canvasParentRef) {
-        p5.createCanvas(500, 500).parent(canvasParentRef);
+class GameSetup {
+    constructor() {
+        this.init = null;
+        if (!!GameSetup.instance) return GameSetup.instance;
+        this.init = new p5();
+        GameSetup.instance = this;
+        return this;
     }
-    function draw(p5) {
-        p5.background(0);
-        p5.ellipse(x, y, 70, 70);
-        x++;
-        y++;
+
+}
+class Ball extends GameSetup {
+    constructor(a) {
+        super();
+        this.a = a;
     }
-    return <Sketch setup={setup} draw={draw} />
 }
 
+class Game extends React.Component {
+    constructor(props) {
+        super(props)
+        this.myRef = React.createRef()
+    }
+
+    Sketch = (p) => {
+
+        p.setup = () => {
+        }
+
+        p.draw = () => {
+        }
+    }
+
+    componentDidMount() {
+        let a = new GameSetup()
+        console.log(new Ball(10));
+    }
+
+    render() {
+        return (
+            <div ref={this.myRef}>
+
+            </div>
+        )
+    }
+}
 export default Game;
