@@ -1,81 +1,12 @@
 import React from "react";
 import "./style.scss"
-import html2canvas from "html2canvas";
 import html2pdf from "html2pdf.js";
-import * as jsPDF from 'jspdf';
-import {Section, SectionBody, SectionHeading} from "../../ui/SectionHeading";
+import {Section, SectionHeading} from "../../ui/SectionHeading";
 import {Progress} from "../../ui/ProgressBar"
 import {data} from "../../assets/data";
 import {StyledText} from "../../ui/Text";
 import {Button} from "../../ui/button";
 
-
-export const ResumeHeader = () => {
-	const {name, designation, headline} = React.useContext(ResumeContext);
-	return (
-		<div className="row flex-column">
-			<div className="col-sm-12">
-				<h1 className="m-0">{name}</h1>
-				<h2>{designation}</h2>
-				{headline && <p className="resume-headline">{headline}</p>}
-			</div>
-		</div>)
-};
-
-export const ResumeMainSection = (props) => {
-	const {title, logo, data, expandable = false} = props.data;
-	const [isExpanded, setExpanded] = React.useState(true);
-
-
-	const handleHeadingClick = (event) => {
-		setExpanded(expanded => !expanded);
-	};
-	const sectionHeadingProps = React.useCallback(() => {
-		if (expandable) {
-			return {
-				onClick: handleHeadingClick
-			}
-		} else {
-			return {}
-		}
-
-	}, [expandable]);
-
-	return (
-		<Section isExpanded={isExpanded} expandable={expandable} className="row  my-2">
-			<SectionHeading {...sectionHeadingProps()}
-							className="section--heading col-sm-12 py-1 d-flex align-items-center">
-				<span className="logo">
-					<i className="material-icons">{logo}</i>
-				</span>
-				<span>{title}{}</span>
-			</SectionHeading>
-			<SectionBody isExpanded={isExpanded}>
-				<div className="row mt-2">
-					{data && data.map(({time, title, subTitle, description}) =>
-						(<div key={title} className="col-sm-12">
-							{time && <b key={time}>{time}</b>}
-							<div className="row" key={title}>
-								<div className="col-sm-12">
-									<b>{title}</b>
-								</div>
-								{subTitle && <div className="col-sm-12">
-									<p>{subTitle}</p>
-								</div>}
-								{description && description.title && <div key={description.title} className="col-sm-12">
-									<b>{description.title}</b>
-								</div>}
-								{(description && (description.data && description.data.length > 0)) &&
-								<ul className="col-sm=12 pl-3">
-									{description.data.map(item => <li key={item}>{item}</li>)}
-								</ul>}
-							</div>
-						</div>)
-					)}
-				</div>
-			</SectionBody>
-		</Section>)
-};
 
 function lastDataIndex(n) {
 	let count = 0;
@@ -115,9 +46,7 @@ function Text({text}) {
 	return body;
 }
 
-
 export const ResumeContainer = () => {
-	let {main} = React.useContext(ResumeContext);
 	let totalPages = lastDataIndex(170);
 	return totalPages.map((sliceValue, index, arr) => {
 		let dataArray = [];
