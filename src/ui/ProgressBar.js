@@ -29,7 +29,6 @@ export const ProgressThumb = styled(ProgressBar)`
     background: ${props => props.theme.progress.foreground};
 `;
 
-
 export const Progress = ({maxValue}) => {
 	let progressRef = React.createRef();
 	React.useEffect(() => {
