@@ -1,17 +1,20 @@
-class Score {
-	constructor() {
-		this.value = 0,
-			this.time = 0;
-	}
-	show() {
-		textSize(32);
-		fill(0, 102, 153);
-		text("score :", 60, 20);
-		text(this.value, 150, 20);
-		fill(0, 102, 153);
-		text("Time Elapsed :", 120, 50);
-		text(this.time, 250, 50);
+export default class Score {
+	static p5;
 
+	constructor() {
+		this.value = 0;
+		this.time = 0;
+	}
+
+	show() {
+		Score.p5.textSize(32);
+		Score.p5.fill(0, 102, 153);
+		Score.p5.text("score :", 60, 20);
+		Score.p5.text(this.value, 150, 20);
+		Score.p5.fill(0, 102, 153);
+		//Score.p5.text("Time Elapsed :", 120, 50);
+		// text(this.time, 250, 50);
+		//
 	}
 
 	update() {

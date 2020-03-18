@@ -1,4 +1,7 @@
-class Ball {
+export default class Ball {
+
+	static p5;
+
 	constructor(x, y, r) {
 		this.x = x;
 		this.y = y;
@@ -8,33 +11,30 @@ class Ball {
 	}
 
 	move(n) {
-		if (this.x > this.diameter / 2 || this.x < width - this.diameter / 2)
+		if (this.x > this.diameter / 2 || this.x < Ball.p5.width - this.diameter / 2)
 			this.x = this.x + n;
 	}
 
 
 	draw() {
-		let r = ball.x % 255;
-		// let g = map(this.y, 0, height, 0, 255);
-		let b = ball.y % 255;
-		push()
-		noStroke()
 
-		fill(255, 0, 0);
-		pop()
+		Ball.p5.push();
+		Ball.p5.noStroke();
+		Ball.p5.fill(255, 0, 0);
+		Ball.p5.pop();
 		//noFill()
 		//noStroke()
 		//image(spaceShip, this.x, this.y);
-		circle(this.x, this.y, this.diameter);
+		Ball.p5.circle(this.x, this.y, this.diameter);
 	}
 
 	update() {
 		this.x = this.x + this.xDirection
 		this.y = this.y + this.yDirection
-		if (this.x > width - this.diameter / 2 || this.x < this.diameter / 2) {
+		if (this.x > Ball.p5.width - this.diameter / 2 || this.x < this.diameter / 2) {
 			this.xDirection *= -1;
 		}
-		if (this.y > height - this.diameter / 2 || this.y < this.diameter / 2) {
+		if (this.y > Ball.p5.height - this.diameter / 2 || this.y < this.diameter / 2) {
 			this.yDirection *= -1;
 		}
 
