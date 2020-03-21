@@ -2,16 +2,37 @@ import React from "react";
 import * as P5 from "p5";
 
 
+class Bricks {
+
+	constructor(game) {
+		this.position = {
+			x: game.p5.random(0, game.p5.width),
+			y: game.p5.random(-game.p5.width / 2, 100),
+		};
+		this.type = game.p5.random(brickTypeChoices);
+		this.width = game.p5.random(brickWidthChoices)
+	}
+
+	draw() {
+
+	}
+
+	update() {
+
+	}
+
+}
+
+
 class Ball {
 	constructor(game) {
 		this.game = game;
-		this.size = 15;
-		console.log(game.p5);
+		this.diameter = 20;
+
 		this.position = {
 			x: 100,
-			y: game.p5.height - 20
+			y: game.p5.height - this.diameter / 2
 		};
-		this.diameter = 20;
 	}
 
 	draw() {
@@ -52,7 +73,26 @@ class InputHandler {
 
 }
 
+const brickWidthChoices = [20, 40, 50, 75, 80, 100];
+const brickTypeChoices = [
+	'enemy',
+	'family',
+	'enemy',
+	'friend',
+	'enemy',
+	'friend',
+	'enemy',
+	'friend',
+	'enemy',
+	'family',
+	'enemy',
+	'family',
+];
+
 class Game {
+	static  brickWidthChoices = brickWidthChoices;
+	static  brickTypeChoices = brickTypeChoices;
+
 	constructor(p5) {
 		this.p5 = p5;
 		this.gamewidth = 600;
