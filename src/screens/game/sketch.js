@@ -6,6 +6,35 @@ import Score from "./Score"
 import {brickTypeChoices, brickWidthChoices, isBallIntersectingBricks} from "./utils";
 
 
+class MindTheVirus {
+
+	constructor(p5) {
+		this.p5 = p5;
+		this.x = 0;
+
+	}
+
+	setup() {
+		const canvas = this.p5.createCanvas(600, 600);
+		canvas.id('canvas').class("d-block mx-auto");
+		this.p5.background(111);
+	}
+
+	preload() {
+
+	}
+
+	draw() {
+	}
+
+	update() {
+
+	}
+
+
+}
+
+
 class Game extends React.Component {
 	constructor(props) {
 		super(props);
@@ -131,8 +160,21 @@ class Game extends React.Component {
 		};
 	};
 
+	newSketch = (p) => {
+		const game = new MindTheVirus(p);
+
+		p.setup = () => {
+			game.setup();
+
+		};
+		p.draw = () => {
+			game.draw();
+			game.update();
+		}
+	};
+
 	componentDidMount() {
-		new p5(this.Sketch, this.myRef.current)
+		new p5(this.newSketch, this.myRef.current)
 	}
 
 	render() {

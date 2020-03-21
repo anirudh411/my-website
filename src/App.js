@@ -4,6 +4,7 @@ import data from "./assets/data";
 import GlobalStyleProvider from "./contexts/GlobalStyle-context";
 import {Switch, BrowserRouter as Router, Route} from "react-router-dom";
 import NavBar from "./ui/NavBar";
+import GameWrapperComponent from "./screens/MindTheVirus";
 //import Game from './screens/game/sketch';
 
 const ResumeContextProvider = React.lazy(() => import("./screens/resume/ResumePages"));
@@ -26,7 +27,7 @@ function App() {
 								<ResumeContextProvider data={data}/>
 							</Route>
 							<Route exact path="/game">
-								<Game/>
+								<GameWrapperComponent/>
 							</Route>
 							<Route exact path="">
 								<Home/>
