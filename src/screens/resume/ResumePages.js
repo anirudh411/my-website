@@ -46,7 +46,7 @@ function Text({text}) {
 	return body;
 }
 
-export const ResumeContainer = () => {
+export const ResumePages = () => {
 	let totalPages = lastDataIndex(170);
 	return totalPages.map((sliceValue, index, arr) => {
 		let dataArray = [];
@@ -159,7 +159,7 @@ export const SkillsContainer = () => {
 
 const ResumeContext = React.createContext();
 
-export default ({children, data}) => {
+const ResumeContainer = ({children, data}) => {
 	if (data) {
 		return <ResumeContext.Provider value={data}>
 			<div className="row">
@@ -189,7 +189,7 @@ export default ({children, data}) => {
 					</Button>
 				</div>
 				<div id="resume" className="col">
-					<ResumeContainer/>
+					<ResumePages/>
 				</div>
 
 			</div>
@@ -197,3 +197,4 @@ export default ({children, data}) => {
 		</ResumeContext.Provider>
 	} else return <div>Nothing interesting here</div>
 }
+export default ResumeContainer;
