@@ -46,7 +46,7 @@ class Game extends React.Component {
 		const CANVAS_HEIGHT = 600;
 		let ball;
 		let lines = [];
-		let score
+		let score;
 		let playButton;
 		let isPlaying = false;
 
