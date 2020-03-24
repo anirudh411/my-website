@@ -48,10 +48,7 @@ class Score {
 
 class Brick {
 	constructor(game) {
-		this.position = {
-			x: game.p5.random(0, game.p5.width),
-			y: game.p5.random(-game.p5.height, 0),
-		};
+		this.position = game.p5.createVector(game.p5.random(0, game.p5.width), game.p5.random(-game.p5.height, 0));
 		this.speed = 1.1;
 		this.game = game;
 		this.type = game.p5.random(brickTypeChoices);

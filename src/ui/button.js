@@ -7,6 +7,7 @@ const handleBackground = (props) => {
 	else return props.theme.button.primary.fill;
 };
 export const Button = styled.button`
+		min-width:fit-content;
 		background-color: ${handleBackground};
 		border-color:${props => props.theme.button.primary.stroke};
 		border-style: solid;
@@ -16,7 +17,7 @@ export const Button = styled.button`
 		color: ${props => props.theme.button.primary.text};
 		padding: .1rem .5rem;
 		&:hover {
-		background-color:${props => props.theme.button.primary.stroke+'22'};
+		background-color:${props => props.theme.button.primary.stroke + '22'};
 		}
 		
 		
