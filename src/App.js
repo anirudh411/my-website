@@ -8,7 +8,7 @@ import GameWrapperComponent from "./screens/MindTheVirus";
 //import Game from './screens/game/sketch';
 
 const ResumeContextProvider = React.lazy(() => import("./screens/resume/ResumePages"));
-const Game = React.lazy(() => import("./screens/game/sketch"));
+//const Game = React.lazy(() => import("./screens/game/sketch"));
 const Home = React.lazy(() => import("./screens/Home"));
 
 function App() {
@@ -17,19 +17,23 @@ function App() {
 			<Router>
 				<div className="container">
 					<NavBar links={
-						[{title: 'Home', to: '/'}, {title: 'About Me', to: '/about'}, {
-							title: 'Play Game',
-							to: '/game'
-						}]}/>
+						[
+							{title: 'Home', to: '/'},
+							{title: 'About Me', to: '/about'},
+							{title: 'Activity', to: '/activity'}
+						]}/>
 					<React.Suspense fallback={null}>
 						<Switch>
 							<Route exact path="/about">
 								<ResumeContextProvider data={data}/>
 							</Route>
-							<Route exact path="/game">
-								<GameWrapperComponent/>
+							{/*<Route exact path="/game">*/}
+							{/*	<GameWrapperComponent/>*/}
+							{/*</Route>*/}
+							<Route exact path="/activity">
+								<Home/>
 							</Route>
-							<Route exact path="">
+							<Route exact path="/*">
 								<Home/>
 							</Route>
 						</Switch>
