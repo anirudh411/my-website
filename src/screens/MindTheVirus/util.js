@@ -9,4 +9,10 @@ function detectCollision(brick, {ball}) {
 	return false;
 }
 
-export {detectCollision};
+function applyForce(object, force, p5) {
+	let f = force.copy();
+	if ('acceleration' in object)
+		object.acceleration.add(f);
+}
+
+export {detectCollision, applyForce};

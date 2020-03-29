@@ -1,13 +1,6 @@
 import React from "react";
 import * as P5 from "p5";
-import Score from "./Score";
-import Brick from "./Brick";
-import Ball from "./Ball";
-
-
-
-
-
+import Game from "./Game";
 
 const sketch = (p) => {
 	let game = new Game(p);

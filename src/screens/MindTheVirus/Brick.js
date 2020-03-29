@@ -1,4 +1,4 @@
-import {detectCollision} from "./util";
+import {applyForce, detectCollision} from "./util";
 
 export default class Brick {
 	static brickWidthChoices = [20, 30, 40, 50];
@@ -21,11 +21,12 @@ export default class Brick {
 	constructor(game) {
 		this.position = game.p5.createVector(game.p5.random(0, game.p5.width), game.p5.random(-game.p5.height, 0));
 		this.speed = 1.1;
-		this.game = game;
 		this.type = game.p5.random(Brick.brickTypeChoices);
 		this.width = this.height = game.p5.random(Brick.brickWidthChoices);
+		this.game = game;
 		this.angle = 0;
-
+		this.velocity = game.p5.createVector(0, 1);
+		this.acceleration = game.p5.createVector(0, 1);
 	}
 
 	draw() {
@@ -70,8 +71,19 @@ export default class Brick {
 
 	}
 
+	checkEdges() {
+		if (this.position.x > this.game.p5.width) {
+			this.position.x = 0;
+		}
+		if (this.position.x < 0) {
+			this.position.x = this.game.p5.width;
+		}
+	}
+
 	update() {
-		this.position.y += this.speed;
+
+
+		//	this.position.y += this.speed;
 		if (this.position.y - this.width / 2 > this.game.p5.height) {
 			this.position.y = this.game.p5.random(-this.game.p5.height, 0);
 		}
@@ -82,5 +94,11 @@ export default class Brick {
 			if (this.type === "friend") this.game.score.update(1);
 			if (this.type === "family") this.game.score.update(2);
 		}
+		let randomX = this.game.p5.createVector(this.game.p5.random(-1, 1) * 0.02, 0);
+		this.acceleration.add(randomX);
+		this.velocity.add(this.acceleration);
+		this.position.add(this.velocity);
+		this.acceleration.mult(0);
 	}
+
 }

@@ -27,9 +27,9 @@ function App() {
 							<Route exact path="/about">
 								<ResumeContextProvider data={data}/>
 							</Route>
-							{/*<Route exact path="/game">*/}
-							{/*	<GameWrapperComponent/>*/}
-							{/*</Route>*/}
+							<Route exact path="/game">
+								<GameWrapperComponent/>
+							</Route>
 							<Route exact path="/activity">
 								<Home/>
 							</Route>
