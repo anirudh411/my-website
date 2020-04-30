@@ -2,7 +2,6 @@ import Ball from "./Ball";
 import Score from "./Score";
 import Brick from "./Brick";
 import InputHandler from "./InputHandler";
-import {applyForce} from "./util";
 
 export default class Game {
 
