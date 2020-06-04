@@ -12,7 +12,6 @@ function App() {
     return (
         <GlobalStyleProvider>
             <Router>
-                <div className="container">
                     <React.Suspense fallback={null}>
                         <Routes>
                             <Route path="/" element={<Home/>}>
@@ -24,7 +23,6 @@ function App() {
                         </Routes>
 
                     </React.Suspense>
-                </div>
             </Router>
         </GlobalStyleProvider>)
 }

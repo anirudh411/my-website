@@ -7,8 +7,11 @@ const GlobalStyle = createGlobalStyle`
      font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
      background: ${props => props.theme.background};
      color: ${props => props.theme.textColor};
-      transition: background-color 600ms ease;
-      font-size: 16px;
+     transition: background-color 600ms ease;
+     font-size: 16px;
+  }
+  main {
+      flex-grow: 1;
   }
     ::-webkit-scrollbar-thumb,::-webkit-scrollbar-track,::-webkit-scrollbar{
       background:${props => props.theme.textColor};

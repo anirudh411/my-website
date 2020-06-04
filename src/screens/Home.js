@@ -4,6 +4,9 @@ import * as Matter from "matter-js";
 import NavBar from "../ui/NavBar";
 import {Outlet} from 'react-router-dom';
 import {useNavigate, useLocation} from 'react-router-dom';
+import Footer from "../ui/Footer";
+import Input from "../ui/elements/form";
+import {Button} from "../ui/button";
 
 const {Engine, World, Bodies} = Matter;
 
@@ -48,13 +51,44 @@ function Home() {
         }
     }, [pathname, navigate]);
     return (<>
-            <NavBar links={
-                [
-                    {title: 'Home', to: '/home'},
-                    {title: 'About Me', to: '/about'},
-                    {title: 'Activity', to: '/activity'}
-                ]}/>
-            <Outlet/>
+            <header className="container">
+                <NavBar links={
+                    [
+                        {title: 'Home', to: '/home'},
+                        {title: 'About Me', to: '/about'},
+                        {title: 'Activity', to: '/activity'}
+                    ]}/>
+            </header>
+            <main className="container">
+                <Outlet/>
+            </main>
+            <Footer>
+                <div className="row">
+                    <div className="offset-md-8">
+                    </div>
+                    <div className="col-sm-4">
+                        <form className="row">
+                            <div className="col-sm-12">
+                                <legend>Drop an email?</legend>
+
+                            </div>
+                            <div className="col-sm-12">
+                                <Input type="email" className="form-control"
+                                       aria-describedby="emailHelp" placeholder="Enter email"/>
+                            </div>
+                            <div className="col-sm-12">
+                                <Input as={'textarea'}>
+                                </Input>
+                            </div>
+                            <div className="col-sm-12 m-2">
+                                <Button>
+                                    Go
+                                </Button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </Footer>
         </>
     )
 }
