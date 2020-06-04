@@ -4,8 +4,6 @@ import * as Matter from "matter-js";
 import NavBar from "../ui/NavBar";
 import {Outlet} from 'react-router-dom';
 import {useNavigate, useLocation} from 'react-router-dom';
-import {P5Component} from "../ui/P5Wrapper";
-import {AngryBirdGame} from "./angryBirdSimulation";
 
 const {Engine, World, Bodies} = Matter;
 
@@ -42,15 +40,17 @@ class HomePageCanvas {
 function Home() {
     let navigate = useNavigate();
     let {pathname} = useLocation();
-    React.useLayoutEffect(() => {
+    React.useEffect(() => {
+
         if (pathname === "/") {
-            navigate('home');
+            navigate('/home')
+
         }
     }, [pathname, navigate]);
     return (<>
             <NavBar links={
                 [
-                    {title: 'Home', to: '/'},
+                    {title: 'Home', to: '/home'},
                     {title: 'About Me', to: '/about'},
                     {title: 'Activity', to: '/activity'}
                 ]}/>
@@ -64,7 +64,6 @@ export function LandingPage() {
     const ref = React.useRef('home');
     return (
         <div id="home" className="row justify-content-center  align-content-center work-in-progress">
-            <P5Component ref={ref} parentId Sketch={AngryBirdGame}/>
             <h1>Work in Progress</h1>
         </div>
     )

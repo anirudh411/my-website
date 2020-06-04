@@ -2,11 +2,11 @@ import React from 'react';
 import './App.scss';
 import GlobalStyleProvider from "./contexts/GlobalStyle-context";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import {LandingPage} from "./screens/Home";
+import Home, {LandingPage} from "./screens/Home";
 import data from "./assets/data";
+import Activity from "./screens/activity";
 
 const ResumeContextProvider = React.lazy(() => import("./screens/resume/ResumePages"));
-const Home = React.lazy(() => import("./screens/Home"));
 
 function App() {
     return (
@@ -16,11 +16,11 @@ function App() {
                     <React.Suspense fallback={null}>
                         <Routes>
                             <Route path="/" element={<Home/>}>
+                                <Route path="home" element={<LandingPage/>}/>
                                 <Route path="*" element={<LandingPage/>}/>
-                                <Route path="/about" element={<ResumeContextProvider data={data}/>}/>
-                                <Route path="/home" element={<LandingPage/>}/>
+                                <Route path="activity" element={<Activity/>}/>
+                                <Route path="about" element={<ResumeContextProvider data={data}/>}/>
                             </Route>
-
                         </Routes>
 
                     </React.Suspense>

@@ -4,6 +4,7 @@ import React from "react";
 
 const GlobalStyle = createGlobalStyle`
   body {
+     font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
      background: ${props => props.theme.background};
      color: ${props => props.theme.textColor};
       transition: background-color 600ms ease;
@@ -21,11 +22,11 @@ const GlobalStyle = createGlobalStyle`
 
 
 function GlobalStyleProvider({children}) {
-	return (
-		<ThemeProvider>
-			<GlobalStyle/>
-			{children}
-		</ThemeProvider>);
+    return (
+        <ThemeProvider>
+            <GlobalStyle/>
+            {children}
+        </ThemeProvider>);
 
 }
 
