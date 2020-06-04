@@ -30,7 +30,13 @@ const Nav = styled.nav`
 			border-radius: .4rem;
 			list-style: none;
 			cursor:pointer;
-			margin: 1rem 0.2rem;
+
+			@media ${device.mobileS}  {
+		 		margin: 0;
+			}
+			@media ${device.tablet} {
+				margin: 1rem 0.2rem;
+			}
 							
 			:hover {
 				background: ${props => props.theme.palette.primary.main + '1f'};
