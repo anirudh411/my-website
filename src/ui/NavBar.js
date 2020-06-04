@@ -1,10 +1,10 @@
-import {Link, NavLink} from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import React from "react";
 import styled from "styled-components";
-import {ThemeDispatchContext} from "../contexts/theme-context";
-import {TOGGLE_THEME} from "../reducers/consntants";
+import { ThemeDispatchContext } from "../contexts/theme-context";
+import { TOGGLE_THEME } from "../reducers/consntants";
 import useLocalStorage from "../hooks/useLocalStorage";
-import {device} from "./css/util";
+import { device } from "./css/util";
 
 const Nav = styled.nav`
 	width: 100%;
@@ -46,25 +46,30 @@ const Nav = styled.nav`
 			  &.active {
 			     @media ${device.mobileS} {
 			      border-left:2px solid ${props => props.theme.palette.primary.main} ;
+				  border-bottom:none;
 			     }
-			     
+
+				 @media ${device.tablet}{
+					border-bottom:2px solid ${props => props.theme.palette.primary.main} ; 
+					border-left:none;
+				 }
 				}
 			}
 		}		
 	}
 `;
-export default ({links}) => {
-    const dispatch = React.useContext(ThemeDispatchContext);
-    const [inDarkMode, setDarkMode] = useLocalStorage('inDarkMode', false);
+export default ({ links }) => {
+	const dispatch = React.useContext(ThemeDispatchContext);
+	const [inDarkMode, setDarkMode] = useLocalStorage('inDarkMode', false);
 
-    return <Nav>
-        <ul>
-            {links.map(link => <li key={link.title}><NavLink to={link.to}>{link.title}</NavLink></li>)}
-            <li onClick={() => {
-                setDarkMode(inDarkMode => !inDarkMode);
-                dispatch({type: TOGGLE_THEME, payload: {inDarkMode}})
-            }}><a>Toggle Theme</a>
-            </li>
-        </ul>
-    </Nav>
+	return <Nav>
+		<ul>
+			{links.map(link => <li key={link.title}><NavLink to={link.to}>{link.title}</NavLink></li>)}
+			<li onClick={() => {
+				setDarkMode(inDarkMode => !inDarkMode);
+				dispatch({ type: TOGGLE_THEME, payload: { inDarkMode } })
+			}}><a>Toggle Theme</a>
+			</li>
+		</ul>
+	</Nav>
 }
