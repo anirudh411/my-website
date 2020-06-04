@@ -4,6 +4,7 @@ import styled from "styled-components";
 import {ThemeDispatchContext} from "../contexts/theme-context";
 import {TOGGLE_THEME} from "../reducers/consntants";
 import useLocalStorage from "../hooks/useLocalStorage";
+import {device} from "./css/util";
 
 const Nav = styled.nav`
 	width: 100%;
@@ -11,52 +12,59 @@ const Nav = styled.nav`
 	position:sticky;
 	font-size: 1rem;
 	ul {
+	    padding-inline-start: 0;
 		width: 100%;
 		display: flex;
 		justify-content: flex-end;
 		
+		@media ${device.mobileS}{
+		    flex-direction:column;
+		}
+		
+		@media ${device.tablet}{
+		flex-direction:row;;
+		}
+		
 		li {
 			display: flex;
-			margin: 1rem 0;
 			border-radius: .4rem;
 			list-style: none;
-			padding: .5rem .5rem;
 			cursor:pointer;
-					
+			margin: 1rem 0.2rem;
+							
 			:hover {
-				background: ${props => props.theme.button.secondary.fill + '1f'};
+				background: ${props => props.theme.palette.primary.main + '1f'};
 				transition: background 400ms ease-in-out ;
 			}
-		
+			
 			a {
-			 	${props => props.theme.button.primary.text};
+			    padding: .5rem .7rem;
 				text-decoration: none;
-				color:${props => props.theme.textColor}
+				font-weight: 400;
+				color:${props => props.theme.textColor}	;
+				
+			  &.active {
+			     @media ${device.mobileS} {
+			      border-left:2px solid ${props => props.theme.palette.primary.main} ;
+			     }
+			     
+				}
 			}
 		}		
 	}
 `;
-
-const Active = styled.div`
-	transition:left 1s;
-	width:100px;
-	height:1px;
-	background:red;
-
-
-`
 export default ({links}) => {
-	const dispatch = React.useContext(ThemeDispatchContext);
-	const [inDarkMode, setDarkMode] = useLocalStorage('inDarkMode', false);
+    const dispatch = React.useContext(ThemeDispatchContext);
+    const [inDarkMode, setDarkMode] = useLocalStorage('inDarkMode', false);
 
-	return <Nav className="container">
-		<ul>
-			{links.map(link => <li key={link.title}><NavLink to={link.to}>{link.title}</NavLink></li>)}
-			<li onClick={() => {
-				setDarkMode(inDarkMode => !inDarkMode);
-				dispatch({type: TOGGLE_THEME, payload: {inDarkMode}})
-			}}>Toggle Theme
-			</li>
-		</ul>
-	</Nav>
+    return <Nav>
+        <ul>
+            {links.map(link => <li key={link.title}><NavLink to={link.to}>{link.title}</NavLink></li>)}
+            <li onClick={() => {
+                setDarkMode(inDarkMode => !inDarkMode);
+                dispatch({type: TOGGLE_THEME, payload: {inDarkMode}})
+            }}><a>Toggle Theme</a>
+            </li>
+        </ul>
+    </Nav>
 }
