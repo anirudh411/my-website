@@ -15,7 +15,7 @@
     "morgan": "^1.9.1",
     "p5": "^1.0.0",
     "react": "^16.13.0",
-    "framer-motion": "^1.11.0",
+    "framer-motion": "^2.0.0-beta.73",
     "react-dom": "^16.13.0",
     "react-intersection-observer": "8.26.1",
     "react-router": "6.0.0-alpha.3",
