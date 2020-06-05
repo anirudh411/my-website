@@ -21,7 +21,6 @@ function App() {
                                 <Route path="about" element={<ResumeContextProvider data={data}/>}/>
                             </Route>
                         </Routes>
-
                     </React.Suspense>
             </Router>
         </GlobalStyleProvider>)
