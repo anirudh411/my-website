@@ -1,10 +1,11 @@
-import { Link, NavLink } from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import React from "react";
 import styled from "styled-components";
-import { ThemeDispatchContext } from "../contexts/theme-context";
-import { TOGGLE_THEME } from "../reducers/consntants";
+import {ThemeDispatchContext} from "../contexts/theme-context";
+import {TOGGLE_THEME} from "../reducers/consntants";
 import useLocalStorage from "../hooks/useLocalStorage";
-import { device } from "./css/util";
+import {device} from "./css/util";
+import {motion} from "framer-motion";
 
 const Nav = styled.nav`
 	width: 100%;
@@ -40,7 +41,7 @@ const Nav = styled.nav`
 							
 			:hover {
 				background: ${props => props.theme.palette.primary.main + '1f'};
-				transition: background 400ms ease-in-out ;
+			
 			}
 			
 			a {
@@ -51,8 +52,9 @@ const Nav = styled.nav`
 				
 			  &.active {
 			     @media ${device.mobileS} {
-			      border-left:2px solid ${props => props.theme.palette.primary.main} ;
-				  border-bottom:none;
+			       color:${props => props.theme.palette.primary.main};
+			       border-left:2px solid ${props => props.theme.palette.primary.main} ;
+				   border-bottom:none;
 			     }
 
 				 @media ${device.tablet}{
@@ -64,18 +66,27 @@ const Nav = styled.nav`
 		}		
 	}
 `;
-export default ({ links }) => {
-	const dispatch = React.useContext(ThemeDispatchContext);
-	const [inDarkMode, setDarkMode] = useLocalStorage('inDarkMode', false);
+export default ({links}) => {
+    const dispatch = React.useContext(ThemeDispatchContext);
+    const [inDarkMode, setDarkMode] = useLocalStorage('inDarkMode', false);
 
-	return <Nav>
-		<ul>
-			{links.map(link => <li key={link.title}><NavLink to={link.to}>{link.title}</NavLink></li>)}
-			<li onClick={() => {
-				setDarkMode(inDarkMode => !inDarkMode);
-				dispatch({ type: TOGGLE_THEME, payload: { inDarkMode } })
-			}}><a>Toggle Theme</a>
-			</li>
-		</ul>
-	</Nav>
+    return <motion.div initial={{opacity: 0, y: -100, z: -100}} animate={{opacity: 1, x: 0, y: 0, z: 0}}>
+        <Nav>
+            <ul>
+                {links.map(link => <motion.li whileHover={{scale: 1.1, marginRight: 10, marginLeft: 10}}
+                                              whileTap={{scale: 0.9}}
+
+                                              key={link.title}><NavLink
+                    to={link.to}>{link.title}</NavLink></motion.li>)}
+                <motion.li
+                    whileTap={{scale: 0.9}}
+                    whileHover={{scale: 1.1, marginRight: 10, marginLeft: 10}}
+                    onClick={() => {
+                        setDarkMode(inDarkMode => !inDarkMode);
+                        dispatch({type: TOGGLE_THEME, payload: {inDarkMode}})
+                    }}><a>Toggle Theme</a>
+                </motion.li>
+            </ul>
+        </Nav>
+    </motion.div>
 }
