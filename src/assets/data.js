@@ -200,7 +200,7 @@ export const activites = [
         title: 'Air and fluid resistance simulation using p5.js',
         description: ['Simple fluid resistance simulation created using p5.js library.'],
         link: 'https://editor.p5js.org/anirudh.chauhan.142@gmail.com/present/G55sod9it',
-        technologies: [technologies.JS, technologies.P5],
+        technologies: [technologies.JS,technologies.P5],
         media: {
             type: 'iframe',
             data: ["https://editor.p5js.org/anirudh.chauhan.142@gmail.com/embed/G55sod9it"],
@@ -216,5 +216,6 @@ export const activites = [
             type: 'iframe',
             data: ["https://editor.p5js.org/anirudh.chauhan.142@gmail.com/present/qa85-6keh"],
         },
+
     }
 ];
