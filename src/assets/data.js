@@ -205,5 +205,17 @@ export const activites = [
             type: 'iframe',
             data: ["https://editor.p5js.org/anirudh.chauhan.142@gmail.com/embed/G55sod9it"],
         },
+    },
+    {
+        date: 'March 2020',
+        title: 'Random Terrain Generator',
+        description: ['A random terrain generated using perlin noise'],
+        link: 'https://editor.p5js.org/anirudh.chauhan.142@gmail.com/present/qa85-6keh',
+        technologies: [technologies.JS, technologies.P5],
+        media: {
+            type: 'iframe',
+            data: ["https://editor.p5js.org/anirudh.chauhan.142@gmail.com/present/qa85-6keh"],
+        },
+
     }
 ];

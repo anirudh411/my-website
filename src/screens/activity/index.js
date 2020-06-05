@@ -68,10 +68,10 @@ function ActivityCard({ date, title = '', link = '', technologies = [], descript
             </h5>
         </motion.div>
         <div className="row">
-            <div className="col-12 d-flex col-md-3" style={{ zIndex: 2 }}>
+            <div className="col-12 d-flex col-md-4" style={{ zIndex: 2 }}>
                 {media}
             </div>
-            <div className="col-12 col-md-9 ">
+            <div className="col-12 col-md-8 ">
                 <div className="content p-md-0  ">
                     <h2 className="font-weight-light">{title}</h2>
                     {description.map((p, i) => <p className='description'>{p}</p>)}
