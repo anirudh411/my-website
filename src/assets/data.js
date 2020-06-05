@@ -173,19 +173,48 @@ export const data = [
 const technologies = {
     ANGULAR: {
         name: 'Angular',
+    },
+    JS: {
+        name: 'JavaScript',
+    },
+    P5: {
+        name: "p5.js"
     }
 }
 
 
-export const activites = [{
-
-    date: 'June 2020 - current',
-    title: 'SaniTech Website',
-    description: ['SaniTech- We are a fast moving and highly innovative hygienic company providing turnkey solutions for all products to ensure the highest hygiene and standards globally.'],
-    link: 'https://sanitechglobal.com/#/home',
-    technologies: [technologies.ANGULAR],
-    media: {
-        type: 'image',
-        data: ['https://github.com/anirudh411/assets/blob/master/images/sanitech/sanitech1.png']
+export const activites = [
+    {
+        date: 'June 2020 - current',
+        title: 'SaniTech Website',
+        description: ['SaniTech- We are a fast moving and highly innovative hygienic company providing turnkey solutions for all products to ensure the highest hygiene and standards globally.'],
+        link: 'https://sanitechglobal.com/#/home',
+        technologies: [technologies.ANGULAR],
+        media: {
+            type: 'image',
+            data: ['https://raw.githubusercontent.com/anirudh411/assets/master/images/sanitech/sanitech1.png']
+        },
+    },
+    {
+        date: 'March 2020',
+        title: 'Air and fluid resistance simulation using p5.js',
+        description: ['Simple fluid resistance simulation created using p5.js library.'],
+        link: 'https://editor.p5js.org/anirudh.chauhan.142@gmail.com/present/G55sod9it',
+        technologies: [technologies.JS, technologies.P5],
+        media: {
+            type: 'iframe',
+            data: ["https://editor.p5js.org/anirudh.chauhan.142@gmail.com/embed/G55sod9it"],
+        },
+    },
+    {
+        date: 'March 2020',
+        title: 'Random Terrain Generator',
+        description: ['A random terrain generated using perlin noise'],
+        link: 'https://editor.p5js.org/anirudh.chauhan.142@gmail.com/present/qa85-6keh',
+        technologies: [technologies.JS, technologies.P5],
+        media: {
+            type: 'iframe',
+            data: ["https://editor.p5js.org/anirudh.chauhan.142@gmail.com/present/qa85-6keh"],
+        },
     }
-}];
+];

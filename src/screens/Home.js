@@ -62,7 +62,7 @@ function Home() {
             <main className="container">
                 <Outlet/>
             </main>
-            <Footer>
+            {/* <Footer>
                 <div className="row">
                     <div className="offset-md-8">
                     </div>
@@ -88,7 +88,7 @@ function Home() {
                         </form>
                     </div>
                 </div>
-            </Footer>
+            </Footer> */}
         </>
     )
 }

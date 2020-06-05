@@ -1,26 +1,34 @@
 import React from "react";
 import styled from "styled-components";
-import {StyledText} from "../../ui/Text";
-import {motion} from "framer-motion";
-import {activites} from "../../assets/data";
+import { StyledText } from "../../ui/Text";
+import { motion } from "framer-motion";
+import { activites } from "../../assets/data";
 
 function Activity() {
     return <>
         <h2 className="mb-5">Activities</h2>
-        <ActivityList/>
+        <ActivityList />
     </>
 }
 
-function ActivityList() {
-    return activites.map((activity, index) => {
-        return <ActivityCard {...activity} key={index} media={
-            <motion.img
-                whileTap={{scale: 2, marginRight: 10, zIndex: 999, marginLeft: 10}}
-                whileHover={{scale: 2, marginRight: 10, zIndex: 999, marginLeft: 10}}
-                src={require("../../assets/images/sanitech/sanitech1.png")} alt=""/>
-        }/>
-    })
+const getMediaElement = ({ type, data }) => {
+    switch (type) {
+        case 'image':
+            return < motion.img
+                whileTap={{ scale: 2, marginRight: 10, zIndex: 999, marginLeft: 10 }}
+                whileHover={{ scale: 2, marginRight: 10, zIndex: 999, marginLeft: 10 }}
+                src={data[0]} alt="" />
 
+        case 'iframe': return <motion.iframe frameBorder="none" src={data[0]} title={type} />
+        default: return null;
+
+
+
+    }
+}
+
+function ActivityList() {
+    return activites.map((activity, index) => <ActivityCard {...activity} key={index} media={getMediaElement(activity.media)} />)
 }
 
 const ActivityCardContainer = styled(motion.div)`
@@ -31,7 +39,7 @@ const ActivityCardContainer = styled(motion.div)`
     padding: 1rem;
     position: relative;
     
-     img {
+     img ,iframe{
       width: 100%;
       height: auto;
       object-fit: contain;
@@ -45,36 +53,36 @@ const ActivityCardContainer = styled(motion.div)`
     }
 `
 
-function ActivityCard({date, title = '', description = [], media = null}) {
+function ActivityCard({ date, title = '', link = '', technologies = [], description = [], media = null }) {
     const variants = {
-        visible: {opacity: 1},
-        hidden: {opacity: 0},
+        visible: { opacity: 1 },
+        hidden: { opacity: 0 },
     }
     return <ActivityCardContainer initial="hidden"
-                                  animate="visible"
-                                  className='mb-4'
-                                  variants={variants}>
-        <motion.div style={{position: 'absolute'}} animate={{y: '-2.2rem', x: '-1rem'}} inital={{y: 0}}>
+        animate="visible"
+        className='mb-5'
+        variants={variants}>
+        <motion.div style={{ position: 'absolute' }} animate={{ y: '-2.2rem', x: '-1rem' }} inital={{ y: 0 }}>
             <h5 className="m-0">
                 <StyledText color={'primary'}>Date: {date}</StyledText>
             </h5>
         </motion.div>
         <div className="row">
-            <div className="col-12 d-flex col-md-3" style={{zIndex: 2}}>
+            <div className="col-12 d-flex col-md-4" style={{ zIndex: 2 }}>
                 {media}
             </div>
-            <div className="col-12 col-md-9 ">
+            <div className="col-12 col-md-8 ">
                 <div className="content p-md-0  ">
                     <h2 className="font-weight-light">{title}</h2>
                     {description.map((p, i) => <p className='description'>{p}</p>)}
-
                     <div className="d-flex mt-5">
-                        <div style={{flex: 1}}>
-                            <a target="_blank" href="https://sanitechglobal.com/#/home"><StyledText color={'primary'}>Learn
-                                More</StyledText></a>
+                        <div style={{ flex: 1 }}>
+                            {link &&
+                                <a target="_blank" rel="noopener noreferrer" href={link}><StyledText color={'primary'}>Learn
+                                More</StyledText></a>}
                         </div>
                         <div className='align-self-end'>
-                            <span>Angular</span> | <span>TypeScript</span> | <span>Hosted on Netlify</span>
+                            <span>  {technologies.map(tech => tech.name).join("|")}</span>
                         </div>
                     </div>
                 </div>
