@@ -5,10 +5,20 @@ import React from "react";
 const GlobalStyle = createGlobalStyle`
   body {
      font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-     background: ${props => props.theme.background};
+     background: ${props => props.theme.background.default};
      color: ${props => props.theme.textColor};
-      transition: background-color 600ms ease;
-      font-size: 16px;
+     transition: background-color 600ms ease;
+     font-size: 16px;
+  }
+  a {
+    text-decoration: none;
+    
+    :hover{
+      text-decoration: none!important;
+    }
+   }
+  main {
+      flex-grow: 1;
   }
     ::-webkit-scrollbar-thumb,::-webkit-scrollbar-track,::-webkit-scrollbar{
       background:${props => props.theme.textColor};
