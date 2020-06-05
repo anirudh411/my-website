@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 const BaseInput = styled.input`
   padding: 0.5em;
-  margin: 0.5em;
+  margin:0.5em 0;
   width: 100%;
   color: ${props => props.theme.palette.primary.main};
   border:1px solid ${props => props.theme.palette.primary.main} ;
-  background:${props => props.theme.palette.primary.light} ;
+  //background:${props => props.theme.palette.primary.light} ;
   border-radius: 3px;
   :focus {
     outline: none;
