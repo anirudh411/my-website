@@ -29,6 +29,13 @@ const Button = styled.button`
         justify-content:center;
         vertical-align:middle;
         transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        
+        :disabled{ cursor: default;
+                    pointer-events:none;
+                    color: rgba(255, 255, 255, 0.3);
+                    box-shadow: none;
+                    background-color: rgba(255, 255, 255, 0.12);
+        }
         :hover {
             background-color:${props => props.color ? props.theme.palette[props.color]['dark'] || props.theme.palette.primary.dark : props.theme.palette.primary.dark}
         }
@@ -96,7 +103,7 @@ export default function Footer() {
                                        placeholder="message" name='message' as={'textarea'}/>
                             </div>
                             <div className="col-12">
-                                <Button type="submit" color="secondary"> Send</Button>
+                                <Button disabled={!email || !message} type="submit" color="secondary"> Send</Button>
                                 {isSuccess &&
                                 <div className="mt-2">
                                     <motion.div initial={{opacity: 0}} animate={{opacity: 1}}>Great. I will be in touch
@@ -107,7 +114,7 @@ export default function Footer() {
                             </div>
                         </Box>
                     </div>
-                    <div className="col-12 mt-2 mt-md-0 col-md-6 col-lg-4  d-flex justify-content-end">
+                    <div className="col-12 mt-2 mt-md-0 col-md-6 col-lg-8 d-flex justify-content-end">
                         <a className="ml-3" href="https://twitter.com/_anirudh___" target="_blank"
                            rel="noopener noreferrer">
                             {index}
