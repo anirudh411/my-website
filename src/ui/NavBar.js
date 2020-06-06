@@ -77,13 +77,13 @@ export default ({links}) => {
     return <motion.div initial="hidden" variants={variants} animate='visible'>
         <Nav>
             <ul>
-                {links.map(link => <motion.li whileHover={{scale: 1.1, marginRight: 10, marginLeft: 10}}
-                                              whileTap={{scale: 0.9}}
+                {links.map(link => <motion.li whileHover={{scale: 1.1,}}
+                                              whileTap={{scale: 0.97}}
                                               key={link.title}><NavLink
                     to={link.to}>{link.title}</NavLink></motion.li>)}
                 <motion.li
-                    whileTap={{scale: 0.9}}
-                    whileHover={{scale: 1.1, marginRight: 10, marginLeft: 10}}
+                    whileTap={{scale: 0.97}}
+                    whileHover={{scale: 1.1}}
                     onClick={() => {
                         setDarkMode(inDarkMode => !inDarkMode);
                         dispatch({type: TOGGLE_THEME, payload: {inDarkMode}})
