@@ -7,7 +7,7 @@ export default {
     text: {
         secondary: 'rgba(0, 0, 0, 0.7)',
         default: '#101010',
-        primary: '#fff'
+        primarery: '#fff'
     },
     textColor: '#101010',
 
