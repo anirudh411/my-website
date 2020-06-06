@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { StyledText } from "../../ui/Text";
 import { motion } from "framer-motion";
 import { activites } from "../../assets/data";
+import { ActivityCardContainer } from "../../ui/elements/Card";
 
 function Activity() {
     return <>
@@ -19,50 +20,38 @@ const getMediaElement = ({ type, data }) => {
                 whileHover={{ scale: 2, marginRight: 10, zIndex: 999, marginLeft: 10 }}
                 src={data[0]} alt="" />
 
-        case 'iframe': return <motion.iframe frameBorder="none" src={data[0]} title={type} />
-        default: return null;
+        case 'iframe':
+            return <motion.iframe frameBorder="none" src={data[0]} title={type}>
+                <motion.div initial={{ opacity: 0 }} whileHover={{ opacity: 1 }}>
+                </motion.div>
 
+            </motion.iframe>
+        default:
+            return null;
 
 
     }
 }
 
 function ActivityList() {
-    return activites.map((activity, index) => <ActivityCard {...activity} key={index} media={getMediaElement(activity.media)} />)
+    return activites.map((activity, index) => <ActivityCard {...activity} index={index} key={index}
+        media={getMediaElement(activity.media)} />)
 }
 
-const ActivityCardContainer = styled(motion.div)`
-    max-width: 100%;
-    box-shadow: 0 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
-    background: ${props => props.theme.background.paper};
-    border-radius: 4px;
-    padding: 1rem;
-    position: relative;
-    
-     img ,iframe{
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
-    
-    .content {
-    
-      .description {
-         color: ${props => props.theme.text.secondary};
-      }
-    }
-`
 
-function ActivityCard({ date, title = '', link = '', technologies = [], description = [], media = null }) {
+function ActivityCard({ index, date, title = '', link = '', technologies = [], description = [], media = null }) {
     const variants = {
-        visible: { opacity: 1 },
+        visible: { opacity: 1, y: '-2.2rem', x: '-1rem' },
         hidden: { opacity: 0 },
     }
-    return <ActivityCardContainer initial="hidden"
-        animate="visible"
-        className='mb-5'
-        variants={variants}>
-        <motion.div style={{ position: 'absolute' }} animate={{ y: '-2.2rem', x: '-1rem' }} inital={{ y: 0 }}>
+
+    
+
+    return <ActivityCardContainer className='mb-5'>
+        <motion.div style={{ position: 'absolute' }} transition={{ delay: index * .2 }}
+            variants={variants}
+            animate="visible"
+            initial="hidden">
             <h5 className="m-0">
                 <StyledText color={'primary'}>Date: {date}</StyledText>
             </h5>
@@ -74,7 +63,7 @@ function ActivityCard({ date, title = '', link = '', technologies = [], descript
             <div className="col-12 col-md-8 ">
                 <div className="content p-md-0  ">
                     <h2 className="font-weight-light">{title}</h2>
-                    {description.map((p, i) => <p className='description'>{p}</p>)}
+                    {description.map((p, i) => <p key={i} className='description'>{p}</p>)}
                     <div className="d-flex mt-5">
                         <div style={{ flex: 1 }}>
                             {link &&

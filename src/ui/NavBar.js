@@ -69,8 +69,12 @@ const Nav = styled.nav`
 export default ({links}) => {
     const dispatch = React.useContext(ThemeDispatchContext);
     const [inDarkMode, setDarkMode] = useLocalStorage('inDarkMode', false);
+    const variants = {
+        hidden: {opacity: 0, y: -10},
+        visible: {opacity: 1, x: 0, y: 0}
+    }
 
-    return <motion.div initial={{opacity: 0, y: -100, z: -100}} animate={{opacity: 1, x: 0, y: 0, z: 0}}>
+    return <motion.div initial="hidden" variants={variants} animate='visible'>
         <Nav>
             <ul>
                 {links.map(link => <motion.li whileHover={{scale: 1.1, marginRight: 10, marginLeft: 10}}
