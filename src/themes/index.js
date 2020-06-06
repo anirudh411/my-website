@@ -5,8 +5,9 @@ export default {
         paper: '#f4f4f4'
     },
     text: {
-        secondary: 'rgba(0, 0, 0, 0.54)',
-        default: '#101010'
+        secondary: 'rgba(0, 0, 0, 0.7)',
+        default: '#101010',
+        primarry: '#fff'
     },
     textColor: '#101010',
 
@@ -18,10 +19,12 @@ export default {
         primary: {
             main: '#9C4AC2',
             light: '#E5A4F4',
+            dark: '#421770'
         },
         secondary: {
             main: '#2FB4B2',
-            light: '#92F2E1'
+            light: '#92F2E1',
+            dark: '#046F56'
         }
     },
 
@@ -35,6 +38,11 @@ export default {
         secondary: {
             fill: "#880E4F",
             stroke: "#F9A825"
+        },
+        success: {
+            fill: '#046F56',
+            stroke: '#046F56'
+
         }
     }
 }
@@ -43,8 +51,10 @@ export const dark = {
     textColor: '#fff',
 
     text: {
+        primary: '#fff',
         default: '#fff',
         secondary: 'rgba(255, 255, 255, 0.7)',
+
     },
     background: {
         default: '#121212',
@@ -59,10 +69,12 @@ export const dark = {
         primary: {
             main: '#9C4AC2',
             light: '#E5A4F4',
+            dark: '#421770'
         },
         secondary: {
             main: '#2FB4B2',
-            light: '#92F2E1'
+            light: '#92F2E1',
+            dark: '#046F56'
         }
     },
     button: {
@@ -76,6 +88,12 @@ export const dark = {
             fill: "#880E4F",
             stroke: "#F9A825"
         },
+
+        success: {
+            fill: '##9BF8AB',
+            stroke: '##41D979'
+
+        }
 
     }
 };
