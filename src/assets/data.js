@@ -185,7 +185,7 @@ const technologies = {
 
 export const activites = [
     {
-        date: 'June 2020 - current',
+        date: 'April, 2020 - May, 2020',
         title: 'SaniTech Website',
         description: ['SaniTech- We are a fast moving and highly innovative hygienic company providing turnkey solutions for all products to ensure the highest hygiene and standards globally.'],
         link: 'https://sanitechglobal.com/#/home',
@@ -200,7 +200,7 @@ export const activites = [
         title: 'Air and fluid resistance simulation using p5.js',
         description: ['Simple fluid resistance simulation created using p5.js library.'],
         link: 'https://editor.p5js.org/anirudh.chauhan.142@gmail.com/present/G55sod9it',
-        technologies: [technologies.JS,technologies.P5],
+        technologies: [technologies.JS, technologies.P5],
         media: {
             type: 'iframe',
             data: ["https://editor.p5js.org/anirudh.chauhan.142@gmail.com/embed/G55sod9it"],
