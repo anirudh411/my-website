@@ -24,6 +24,7 @@ const Nav = styled.nav`
 		
 		@media ${device.tablet}{
 		flex-direction:row;;
+		margin-bottom:2rem;
 		}
 		
 		li {
