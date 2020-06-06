@@ -107,7 +107,7 @@ export default function Footer() {
                             </div>
                         </Box>
                     </div>
-                    <div className="col-12 mt-2 mt-md-0 col-md-6 col-lg-4  d-flex justify-content-end">
+                    <div className="col-12 mt-2 mt-md-0 col-md-6 col-lg-8 d-flex justify-content-end">
                         <a className="ml-3" href="https://twitter.com/_anirudh___" target="_blank"
                            rel="noopener noreferrer">
                             {index}
