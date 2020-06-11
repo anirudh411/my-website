@@ -135,7 +135,6 @@ export default ({links}) => {
     React.useEffect(() => {
         setOpen(false)
     }, [pathname])
-    console.log(pathname);
 
     const variants = {
         hidden: {opacity: 0, y: -10},
@@ -151,14 +150,13 @@ export default ({links}) => {
 
     return (
         <Nav initial="hidden" className={isOpen ? 'open' : 'close'} variants={variants} animate='visible'>
-            <motion.ul transition={.5} className={isOpen ? 'open' : 'close'}>
+            <motion.ul animate className={isOpen ? 'open' : 'close'}>
                 {links.map(link => <motion.li whileHover={{scale: 1.1,}}
-                                              animate
+
                                               whileTap={{scale: 0.97}}
                                               key={link.title}><NavLink
                     to={link.to}>{link.title}</NavLink></motion.li>)}
                 <motion.li
-                    animate
                     whileTap={{scale: 0.98}
                     }
                     whileHover={{scale: 1.05}}
