@@ -18,7 +18,6 @@ const handleBackground = (props) => {
 
 export const ButtonInner = styled(motion.button)`
 		min-width:fit-content;
-		width: ${props => props.width || 'inherit'};
 		background-color: ${handleBackground};
 		border-color:${props => props.theme.palette.primary.main};
 		border-style: solid;
