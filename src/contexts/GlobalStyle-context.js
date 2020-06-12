@@ -21,12 +21,12 @@ const GlobalStyle = createGlobalStyle`
       flex-grow: 1;
   }
     ::-webkit-scrollbar-thumb,::-webkit-scrollbar-track,::-webkit-scrollbar{
-      background:${props => props.theme.textColor};
+      background:${props => props.theme.palette.primary.main};
       width:10px;
       border-radius:25px
       }  
       ::-webkit-scrollbar-track-piece{
-      background:${props => props.theme.background};
+      background:${props => props.theme.background.default};
       }
 `;
 
