@@ -114,12 +114,12 @@ export default function Footer() {
                             </div>
                         </Box>
                     </div>
-                    <div className="col-12 mt-2 mt-md-0 col-md-6 col-lg-8 d-flex justify-content-end">
-                        <a className="ml-3" href="https://twitter.com/_anirudh___" target="_blank"
+                    <div className="col-12 mt-4 mt-md-0 col-md-6 col-lg-8 d-flex justify-content-md-end justify-content-start">
+                        <a className="ml-3 my-auto" href="https://twitter.com/_anirudh___" target="_blank"
                            rel="noopener noreferrer">
                             {index}
                         </a>
-                        <a className="ml-3 text-white" href="https://github.com/anirudh411" target="_blank"
+                        <a className="ml-3 my-auto text-white" href="https://github.com/anirudh411" target="_blank"
                            rel="noopener noreferrer">
                             {github}
                         </a>

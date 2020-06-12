@@ -9,6 +9,9 @@ const size = {
 }
 
 const device = {
+
+    onlyMobile: `(max-width: ${size.tablet}) and (min-width: ${size.mobileS})`,
+
     mobileS: `(min-width: ${size.mobileS})`,
     mobileM: `(min-width: ${size.mobileM})`,
     mobileL: `(min-width: ${size.mobileL})`,

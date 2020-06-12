@@ -83,7 +83,7 @@ export const data = [
         type: 'h4',
         text: [
             '2018-Present',
-            'Full-Stack Developer',
+            'Frontend Developer',
             'Dhwani Rural Information System'
         ]
     },
@@ -92,10 +92,11 @@ export const data = [
         fontWeight: 'bold',
         text: [
             '<b><i>Responsibilities :</i></b>',
-            'Worked on multiple data incentive projects using technologies like Angular, React, React Native.',
+            '<b>Lead the front-end development team for multiple projects.</b>',
+            'Worked on multiple data incentive projects using technologies like <b> React, Angular, React Native.</b>',
             'Build re-usable components to facilitate development across projects',
-            'Implemented POC on various ideas and technologies like Survey forms, chat bots, etc.',
-            'Lead the front-end development team projects.']
+            'Implemented POC on various ideas and technologies like survey forms, chat bots, etc.',
+        ]
     },
     {
         type: 'section',
@@ -105,7 +106,24 @@ export const data = [
     },
     {
         type: 'h4',
-        text: ['2019/07-current', '[City Finance (Angular) ](https://democityfinance.dhwaniris.in/)'],
+        text: ['2020/02-2020/06']
+    },
+    {
+        type: 'p',
+        fontWeight: 'bold',
+        text: [
+            'A tool just like <b>google forms</b> where user can submit responses to multiple forms assigned to him/her.',
+            'Support for multiple types of questions types like select,checkbox,image,video,audio, nested forms,etc with complex restriction,validations and skip logic.',
+            'Configurable theming.',
+            'Build in <b>React ecosystem</b> (react, react-router,react-material-ui).'
+        ]
+
+    },
+
+
+    {
+        type: 'h4',
+        text: ['2019/07-2020/02', '[City Finance (Angular) ](https://democityfinance.dhwaniris.in/)'],
         link: ''
     },
     {
@@ -113,7 +131,7 @@ export const data = [
         fontWeight: 'bold',
         text: [
             'An initiative of Ministry of Housing and Urban Affairs,<b>Government of India</b>',
-            'Worked on the dashboard panel of this project.',
+            'Worked on the dashboard panel and data upload module of this project.',
             'Used <b>chart.js,leaflet.js ,angular material</b> etc.'
         ]
 

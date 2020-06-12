@@ -149,7 +149,7 @@ export const SkillsContainer = () => {
             <span>Skills</span>
         </SectionHeading>
         <div className="col-sm-12 resume-body">
-            <ul>{skills.map((skill) => {
+            <ul className="pl-0 pl-md-3">{skills.map((skill) => {
                 return <React.Fragment key={skill.title}>
                     <li className="my-2 pl-0">{skill.title}</li>
                     <Progress maxValue={skill.level}/></React.Fragment>
@@ -166,7 +166,7 @@ const ResumeContainer = ({children, data}) => {
         return <ResumeContext.Provider value={data}>
             <div className="row">
                 <div className="col-12 col-md-2  d-flex flex-column">
-                    <Button outlined
+                    <Button animate={{x: 0, y: 0}} initial={{y: -100}} transition={{when: 'beforeChildren'}} outlined
                             onClick={async () => window.open(require("../../assets/anirudh_resume.pdf"))}>Download</Button>
                 </div>
                 <div id="resume" className="col">

@@ -5,7 +5,7 @@ import themeReducer from "../reducers/theme-reducer";
 
 
 const initialState = {
-	isDarkMode: false,
+	isDarkMode: localStorage.getItem('inDarkMode'),
 	theme: theme,
 };
 const ThemeDispatchContext = React.createContext();
