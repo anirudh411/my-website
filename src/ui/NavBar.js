@@ -76,19 +76,22 @@ const Nav = styled(motion.nav)`
 		  	
 		}
 		
-		@media ${device.mobileS}{
+		@media  ${device.mobileS}{
 		    flex-direction:column;
 		    justify-content: center;;
 		    align-items: center;
 		}
 		
 		@media ${device.tablet}{
-		flex-direction:row;;
-		margin-bottom:2rem;
+		    flex-direction:row;
+	    	margin-bottom:2rem;
+	    	justify-content: flex-end;
+		
 		}
 		
 	
 		li {
+		    text-transform: lowercase;
 			display: flex;
 			border-radius: .4rem;
 			list-style: none;
@@ -115,7 +118,9 @@ const Nav = styled(motion.nav)`
 			  &.active {
 			     @media ${device.mobileS} {
 			       color:${props => props.theme.palette.primary.main};
+			       font-weight:bolder;
 			       border-bottom:2px solid ${props => props.theme.palette.primary.main} ;
+
 		
 			     }
 

@@ -7,6 +7,7 @@ import {StyledText} from "../../ui/Text";
 import {Button} from "../../ui/button";
 import {Paper} from "../../ui/components/Paper";
 import {motion} from "framer-motion";
+import {DELAY_PER_CHILDREN_IN_SEC} from "../../constants";
 
 const ResumeContext = React.createContext();
 
@@ -130,7 +131,7 @@ export const SkillsContainer = () => {
         preserve3d: true,
         show: {
             transition: {
-                staggerChildren: .1
+                staggerChildren: DELAY_PER_CHILDREN_IN_SEC - 0.4
             }
         }
     };
