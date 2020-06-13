@@ -5,6 +5,10 @@ import {Progress} from "../../ui/ProgressBar"
 import {data} from "../../assets/data";
 import {StyledText} from "../../ui/Text";
 import {Button} from "../../ui/button";
+import {Paper} from "../../ui/components/Paper";
+
+const ResumeContext = React.createContext();
+
 
 
 function lastDataIndex(n) {
@@ -93,28 +97,17 @@ function ResumeElements(item) {
 }
 
 export const ResumePages = () => {
-    let totalPages = lastDataIndex(170);
-    return <div className="row resume">
+    return <Paper className="row resume">
         <div className="col-12 col-md-8">
-            {totalPages.map((sliceValue, index, arr) => {
-                let dataArray = [];
-                if (index === 0) {
-                    dataArray = data.slice(0, arr[1]);
-                } else if (index === arr.length - 1) return null;
-                else dataArray = data.slice(arr[index], arr[index + 1]);
-                return <React.Fragment key={index}>
-                    <main>
-                        {dataArray.map((item, index) => <ResumeElements key={index} {...item}/>)}
-                    </main>
-                    {/*<div className="html2pdf__page-break"></div>*/}
-                </React.Fragment>
-            })}
+            <main>
+                {data.map((item, index) => <ResumeElements key={index} {...item}/>)}
+            </main>
         </div>
         <div className="col-12 col-md-4">
             <PersonalInformation/>
             <SkillsContainer/>
         </div>
-    </div>
+    </Paper>
 }
 export const PersonalInformation = () => {
     const {personal_information} = React.useContext(ResumeContext);
@@ -159,7 +152,6 @@ export const SkillsContainer = () => {
     </section>
 };
 
-const ResumeContext = React.createContext();
 
 const ResumeContainer = ({children, data}) => {
     if (data) {

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { StyledText } from "../../ui/Text";
 import { motion } from "framer-motion";
 import { activites } from "../../assets/data";
-import { ActivityCardContainer } from "../../ui/elements/Card";
+import { ActivityCardContainer } from "../../ui/components/Card";
 
 function Activity() {
     return <>
@@ -45,7 +45,7 @@ function ActivityCard({ index, date, title = '', link = '', technologies = [], d
         hidden: { opacity: 0 },
     }
 
-    
+
 
     return <ActivityCardContainer className='mb-5'>
         <motion.div style={{ position: 'absolute' }} transition={{ delay: index * .2 }}
