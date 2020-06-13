@@ -161,8 +161,8 @@ export default ({links}) => {
                     {...tapAnimation}
                     {...hoverAnimation}
                     onClick={() => {
-                        setDarkMode(inDarkMode => !inDarkMode);
-                        dispatch({type: TOGGLE_THEME, payload: {inDarkMode}})
+                        setDarkMode(mode => !mode);
+                        dispatch({type: TOGGLE_THEME, payload: inDarkMode})
                     }}><a>Toggle Theme</a>
                 </motion.li>
             </motion.ul>

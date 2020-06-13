@@ -50,7 +50,7 @@ export function LandingPage() {
     };
     const variants = {
         show: {opacity: 1, y: 0, originX: 0, letterSpacing: '.05rem'},
-        hidden: {opacity: 0, y: '-1rem', letterSpacing: 'normal'},
+        hidden: {opacity: 0.00001, y: '-1rem', letterSpacing: 'normal'},
 
     }
     const ref = React.useRef('home');
@@ -73,14 +73,19 @@ export function LandingPage() {
                     Tool and Technologies that I have
                     worked with so far</StyledText>
             </div>
-            <motion.div variants={variants} className="col-sm-12  justify-content-around my-4 d-flex flex-wrap ">
+            <motion.div variants={variants} className="col-sm-12 justify-content-center my-4 d-flex flex-wrap ">
                 {homePageIcons.map(({src, title}, index) => <div key={index}
-                                                                 className="d-flex flex-1 mx-2 my-2 flex-column">
+                                                                 title={title}
+                                                                 className="d-flex flex-1 mx-2 my-2 align-items-center   flex-column">
                     <motion.img animate={{opacity: 0.5}}
                                 {...tapAnimation}
                                 {...hoverAnimation}
                                 inital={{opacity: 0}} src={src}
-                                style={{minWidth: '5rem', maxHeight: '5rem', objectFit: 'contain'}} alt={title}/>
+                                style={{
+                                    minWidth: '5rem',
+                                    maxHeight: '5rem', objectFit: 'contain'
+                                }} alt={title}/>
+                    <StyledText variants={variants} className="caption mt-2" as="p">{title}</StyledText>
                 </div>)}
             </motion.div>
 

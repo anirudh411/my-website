@@ -110,6 +110,10 @@ export const homePageIcons = [
         src: require("../assets/icons/css3.svg")
     },
     {
+        title: 'SASS(SCSS)',
+        src: require("../assets/icons/sass-1.svg")
+    },
+    {
         title: 'Angular',
         src: require("../assets/icons/angular.svg")
     },
@@ -134,6 +138,10 @@ export const homePageIcons = [
         src: require("../assets/icons/framer-motion.svg")
     },
     {
+        title: 'Styled Components',
+        src: require("../assets/icons/styled-components.png")
+    },
+    {
         title: 'p5.js',
         src: require("../assets/icons/p5-sq-reverse-filled.png")
     },
@@ -141,9 +149,25 @@ export const homePageIcons = [
         title: 'Leaflet',
         src: require("../assets/icons/leaflet.png")
     },
-   {
+    {
         title: 'Git',
         src: require("../assets/icons/git.svg")
+    },
+    {
+        title: 'BitBucket',
+        src: require("../assets/icons/bitbucket-icon.svg")
+    },
+    {
+        title: 'VS Code',
+        src: require("../assets/icons/Visual_Studio_Code_1.18_icon.svg")
+    },
+    {
+        title: 'Web Storm',
+        src: require("../assets/icons/webstorm-icon.svg")
+    },
+    {
+        title: 'Netlify',
+        src: require("../assets/icons/netlify.png")
     }
 ]
 

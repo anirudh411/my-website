@@ -6,6 +6,7 @@ import {data} from "../../assets/data";
 import {StyledText} from "../../ui/Text";
 import {Button} from "../../ui/button";
 import {Paper} from "../../ui/components/Paper";
+import {motion} from "framer-motion";
 
 const ResumeContext = React.createContext();
 
@@ -108,7 +109,6 @@ export const ResumePages = () => {
 }
 export const PersonalInformation = () => {
     const {personal_information} = React.useContext(ResumeContext);
-    console.log(personal_information);
     return <div className="row resume-body mt-2 m-md-0">
         <SectionHeading className="section--heading col-sm-12 mb-2 py-1 d-flex align-items-center">
 									<span className="logo">
@@ -125,6 +125,15 @@ export const PersonalInformation = () => {
 };
 
 export const SkillsContainer = () => {
+    const container = {
+        hidden: {opacity: 1,},
+        preserve3d: true,
+        show: {
+            transition: {
+                staggerChildren: .1
+            }
+        }
+    };
     const {skills} = React.useContext(ResumeContext);
     return <section className="row section skills-container ">
         <SectionHeading className="section--heading col-sm-12 mb-2 py-1 d-flex align-items-center">
@@ -134,12 +143,13 @@ export const SkillsContainer = () => {
             <span>Skills</span>
         </SectionHeading>
         <div className="col-sm-12 resume-body">
-            <ul className="pl-0 pl-md-3">{skills.map((skill) => {
+            <motion.ul variants={container} animate='show' initial='hidden'
+                       className="pl-0 pl-md-3">{skills.map((skill) => {
                 return <React.Fragment key={skill.title}>
                     <li className="my-2 pl-0">{skill.title}</li>
-                    <Progress maxValue={skill.level}/></React.Fragment>
+                    <Progress animate maxValue={skill.level}/></React.Fragment>
             })}
-            </ul>
+            </motion.ul>
         </div>
     </section>
 };
