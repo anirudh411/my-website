@@ -1,29 +1,62 @@
 export default {
     personal_information: {
-        data: [
+        titles: [
             {
-                title: 'Phone',
-                description: `7310569408`
+                type: 'p',
+                fontWeight: 'bold',
+                text: ['<b>Phone</b>']
             },
             {
-                title: 'E-mail',
-                description: `anirudh.chauhan.142@gmail.com`
+                type: 'p',
+                text: ['7310569408']
             },
             {
-                title: 'Date of Birth',
-                description: `December 14, 1996`
+                type: 'p',
+                fontWeight: 'bold',
+                text: ['<b>E-mail</b>']
             },
             {
-                title: 'LinkedIn',
-                description: `https://www.linkedin.com/in/anirudh-kumar-b0a94614a/`
-            }, {
-                title: 'Twitter',
-                description: `@_anirudh___`
-
+                type: 'p',
+                text: ['anirudh.chauhan.142@gmail.com']
             },
-
-        ]
-
+            {
+                type: 'p',
+                fontWeight: 'bold',
+                text: ['<b>Date of Birth</b>']
+            },
+            {
+                type: 'p',
+                text: ['December 14, 1996']
+            },
+            {
+                type: 'p',
+                fontWeight: 'bold',
+                text: ['<b>LinkedIn</b>']
+            },
+            {
+                type: 'p',
+                text: [`[ https://www.linkedin.com/in/anirudh-kumar-b0a94614a/ ](https://www.linkedin.com/in/anirudh-kumar-b0a94614a/)`]
+            },
+            {
+                type: 'p',
+                fontWeight: 'bold',
+                text: ['<b>Github</b>']
+            },
+            {
+                type: 'p',
+                fontWeight: 'bold',
+                text: ['[https://github.com/anirudh411](https://github.com/anirudh411 )']
+            },
+            {
+                type: 'p',
+                fontWeight: 'bold',
+                text: ['<b>Twitter</b>']
+            },
+            {
+                type: 'p',
+                text: ['[@_anirudh___](https://twitter.com/_anirudh___ )']
+            },
+        ],
     },
     skills: [
         {
@@ -32,7 +65,7 @@ export default {
         },
         {
             title: 'React (Flux, hooks )',
-            level: .8
+            level: .9
         },
         {
             title: 'Angular (Angular Material)',
