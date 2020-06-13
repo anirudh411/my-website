@@ -130,6 +130,10 @@ export const homePageIcons = [
         src: require("../assets/icons/material-ui.svg")
     },
     {
+        title: 'Framer motion',
+        src: require("../assets/icons/framer-motion.svg")
+    },
+    {
         title: 'p5.js',
         src: require("../assets/icons/p5-sq-reverse-filled.png")
     },
@@ -137,10 +141,7 @@ export const homePageIcons = [
         title: 'Leaflet',
         src: require("../assets/icons/leaflet.png")
     },
-    {
-        title: 'Framer motion',
-        src: require("../assets/icons/framer-motion.svg")
-    }, {
+   {
         title: 'Git',
         src: require("../assets/icons/git.svg")
     }

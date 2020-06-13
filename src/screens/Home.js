@@ -63,14 +63,14 @@ export function LandingPage() {
             <div className="col-sm-12 jus" style={{textAlign: 'center'}}>
                 <StyledText as='small' variants={variants} className="mb-0 small" color='primary'>Hi, my name
                     is </StyledText>
-                <StyledText variants={variants} as="h2">Anirudh Kumar. </StyledText>
-                <StyledText variants={variants} as="h1" color="secondary" className="text-muted">I create things for
+                <StyledText variants={variants} as="h2">Anirudh. </StyledText>
+                <StyledText variants={variants} as="h1" color="secondary" className="text-muted">I develop things for
                     the Web.</StyledText>
             </div>
 
             <div className="col-12 mt-5" style={{textAlign: 'center'}}>
                 <StyledText variants={variants} as="h3" className="text-muted">
-                    Tool and Technologies ,I have
+                    Tool and Technologies that I have
                     worked with so far</StyledText>
             </div>
             <motion.div variants={variants} className="col-sm-12  justify-content-around my-4 d-flex flex-wrap ">

@@ -30,10 +30,10 @@ function getMinimumVisibleKeyPathPerPage(obj, maximum) {
 }
 
 export const tapAnimation = {
-    whileTap: {scale: 0.95}
+    whileTap: {scale: 0.95, opacity: 1}
 }
 export const hoverAnimation = {
-    whileHover: {scale: 1.1,opacity:1}
+    whileHover: {scale: 1.1, opacity: 1}
 }
 
 export {
