@@ -7,6 +7,7 @@ import {StyledText} from "../ui/Text";
 import {motion} from "framer-motion";
 import {homePageIcons} from "../assets/data";
 import {tapAnimation, hoverAnimation} from "./resume/utils";
+import {DELAY_PER_CHILDREN_IN_SEC} from "../constants";
 
 
 function Home() {
@@ -44,7 +45,7 @@ export function LandingPage() {
         preserve3d: true,
         show: {
             transition: {
-                staggerChildren: .5
+                staggerChildren: DELAY_PER_CHILDREN_IN_SEC
             }
         }
     };
