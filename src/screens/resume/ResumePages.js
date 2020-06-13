@@ -33,7 +33,6 @@ function Text({text}) {
     let simpleText = text;
     let link = '';
     const condition = str[0] === "[" && str[str.lastIndexOf("]") + 1] === "(";
-    console.log(text, condition)
     if (condition) {
         simpleText = simpleText.substring(1, str.lastIndexOf("]"));
         link = text.substring(str.lastIndexOf("]") + 2, str.length - 2);
@@ -96,12 +95,12 @@ function ResumeElements(item) {
 
 export const ResumePages = () => {
     return <Paper className="row resume">
-        <div className="col-12 col-md-8">
+        <div className="col-12 col-lg-8">
             <main>
                 {data.map((item, index) => <ResumeElements key={index} {...item}/>)}
             </main>
         </div>
-        <div className="col-12 col-md-4">
+        <div className="col-12 col-lg-4">
             <PersonalInformation/>
             <SkillsContainer/>
         </div>
