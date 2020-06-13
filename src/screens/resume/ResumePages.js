@@ -10,7 +10,6 @@ import {Paper} from "../../ui/components/Paper";
 const ResumeContext = React.createContext();
 
 
-
 function lastDataIndex(n) {
     let count = 0;
     let pageIndex = [0];
@@ -28,20 +27,19 @@ function lastDataIndex(n) {
 
 function Text({text}) {
 
-    function handleTextOnHover() {
-    }
 
     let body = '';
     const str = text;
     let simpleText = text;
     let link = '';
     const condition = str[0] === "[" && str[str.lastIndexOf("]") + 1] === "(";
+    console.log(text, condition)
     if (condition) {
         simpleText = simpleText.substring(1, str.lastIndexOf("]"));
         link = text.substring(str.lastIndexOf("]") + 2, str.length - 2);
     }
     if (link) {
-        body = <a title={simpleText} onMouseEnter={handleTextOnHover} rel="noopener noreferrer" target="_blank"
+        body = <a title={simpleText} rel="noopener noreferrer" target="_blank"
                   href={link}>{simpleText} </a>;
     } else {
         body = <StyledText dangerouslySetInnerHTML={{__html: simpleText}}/>;
@@ -50,6 +48,7 @@ function Text({text}) {
 }
 
 function ResumeElements(item) {
+    const textClassNames = item.fontWeight ? 'font-weight-bold' : '';
     switch (item.type) {
         case "h1":
             return <div className="row flex-column">
@@ -89,8 +88,7 @@ function ResumeElements(item) {
             return <div className="row my-2">
                 {item.text.map((text, i) => <p key={i}
                                                className="col-sm-12 m-0 resume-headline">
-                    <Text
-                        text={text}/></p>)}
+                    <Text text={text}/></p>)}
             </div>
     }
 
@@ -111,6 +109,7 @@ export const ResumePages = () => {
 }
 export const PersonalInformation = () => {
     const {personal_information} = React.useContext(ResumeContext);
+    console.log(personal_information);
     return <div className="row resume-body mt-2 m-md-0">
         <SectionHeading className="section--heading col-sm-12 mb-2 py-1 d-flex align-items-center">
 									<span className="logo">
@@ -119,14 +118,8 @@ export const PersonalInformation = () => {
             <span>Personal Info</span>
         </SectionHeading>
         <div className="col-sm-12">
-            {personal_information.data.length > 0 && personal_information.data.map(({title, description}) => {
-                return (
-                    <div key={title} className="my-2">
-                        <div><b>{title}</b></div>
-                        <div className="text-w">{description}</div>
-                    </div>
-                )
-            })}
+            {personal_information.titles.length > 0 && personal_information.titles.map((title, index) => <ResumeElements
+                key={index} {...title}/>)}
         </div>
     </div>
 
