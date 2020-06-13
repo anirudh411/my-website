@@ -2,7 +2,7 @@ export default {
     name: 'light',
     background: {
         default: '#f4f4f4',
-        paper: '#f4f4f4'
+        paper: '#fff'
     },
     text: {
         secondary: 'rgba(0, 0, 0, 0.7)',
