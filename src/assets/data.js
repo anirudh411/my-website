@@ -92,6 +92,59 @@ export default {
     ]
 }
 
+export const homePageIcons = [
+    {
+        title: 'HTML',
+        src: require("../assets/icons/html-5.svg")
+    },
+    {
+        title: 'Javascript',
+        src: require("../assets/icons/javascript.svg")
+    },
+    {
+        title: 'Typescript',
+        src: require("../assets/icons/typescript.svg")
+    },
+    {
+        title: 'CSS',
+        src: require("../assets/icons/css3.svg")
+    },
+    {
+        title: 'Angular',
+        src: require("../assets/icons/angular.svg")
+    },
+    {
+        title: 'Angular Material',
+        src: require("../assets/icons/angular-material-logo.svg")
+    },
+    {
+        title: 'React',
+        src: require("../assets/icons/react.svg")
+    },
+    {
+        title: 'React Native',
+        src: require("../assets/icons/react-native.svg")
+    },
+    {
+        title: 'React Material UI',
+        src: require("../assets/icons/material-ui.svg")
+    },
+    {
+        title: 'p5.js',
+        src: require("../assets/icons/p5-sq-reverse-filled.png")
+    },
+    {
+        title: 'Leaflet',
+        src: require("../assets/icons/leaflet.png")
+    },
+    {
+        title: 'Framer motion',
+        src: require("../assets/icons/framer-motion.svg")
+    }, {
+        title: 'Git',
+        src: require("../assets/icons/git.svg")
+    }
+]
 
 export const data = [
     {

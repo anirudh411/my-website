@@ -7,6 +7,7 @@ import useLocalStorage from "../hooks/useLocalStorage";
 import {device} from "./css/util";
 import {motion} from "framer-motion";
 import {Button, ButtonInner} from "./button";
+import {tapAnimation, hoverAnimation} from "../screens/resume/utils";
 
 const Nav = styled(motion.nav)`
 	width: 100%;
@@ -157,9 +158,8 @@ export default ({links}) => {
                                               key={link.title}><NavLink
                     to={link.to}>{link.title}</NavLink></motion.li>)}
                 <motion.li
-                    whileTap={{scale: 0.98}
-                    }
-                    whileHover={{scale: 1.05}}
+                    {...tapAnimation}
+                    {...hoverAnimation}
                     onClick={() => {
                         setDarkMode(inDarkMode => !inDarkMode);
                         dispatch({type: TOGGLE_THEME, payload: {inDarkMode}})

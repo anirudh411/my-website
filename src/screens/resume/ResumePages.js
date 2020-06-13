@@ -33,7 +33,6 @@ function Text({text}) {
     let simpleText = text;
     let link = '';
     const condition = str[0] === "[" && str[str.lastIndexOf("]") + 1] === "(";
-    console.log(text, condition)
     if (condition) {
         simpleText = simpleText.substring(1, str.lastIndexOf("]"));
         link = text.substring(str.lastIndexOf("]") + 2, str.length - 2);
