@@ -75,18 +75,23 @@ export function LandingPage() {
                     worked with so far</StyledText>
             </div>
             <motion.div variants={variants} className="col-sm-12 justify-content-center my-4 d-flex flex-wrap ">
-                {homePageIcons.map(({src, title}, index) => <div key={index}
-                                                                 title={title}
-                                                                 className="d-flex flex-1 mx-2 my-2 align-items-center   flex-column">
+                {homePageIcons.map(({src, title, link}, index) => <div key={index}
+                                                                       title={title}
+                                                                       className="d-flex flex-1 mx-2 my-2 align-items-center   flex-column">
                     <motion.img animate={{opacity: 0.5}}
                                 {...tapAnimation}
                                 {...hoverAnimation}
-                                inital={{opacity: 0}} src={src}
+                                inital={{opacity: 0}}
+                                src={src}
                                 style={{
                                     minWidth: '5rem',
                                     maxHeight: '5rem', objectFit: 'contain'
                                 }} alt={title}/>
-                    <StyledText variants={variants} className="caption mt-2" as="p">{title}</StyledText>
+                    <StyledText animate
+                                className="caption mt-2"
+                                href={link}
+                                target="_blank"
+                                as={link ? 'a' : 'p'}>{title}</StyledText>
                 </div>)}
             </motion.div>
 

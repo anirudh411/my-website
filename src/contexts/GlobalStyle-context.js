@@ -12,9 +12,11 @@ const GlobalStyle = createGlobalStyle`
   }
   a {
     text-decoration: none;
+  
     
     :hover{
       text-decoration: none!important;
+      color:${props => props.theme.palette.primary.main} ;
     }
    }
   main {

@@ -103,6 +103,7 @@ export const homePageIcons = [
     },
     {
         title: 'Typescript',
+        link: 'https://www.typescriptlang.org/',
         src: require("../assets/icons/typescript.svg")
     },
     {
@@ -111,42 +112,52 @@ export const homePageIcons = [
     },
     {
         title: 'SASS(SCSS)',
+        link: 'https://sass-lang.com/',
         src: require("../assets/icons/sass-1.svg")
     },
     {
         title: 'Angular',
+        link: 'https://angular.io/',
         src: require("../assets/icons/angular.svg")
     },
     {
         title: 'Angular Material',
+        link: 'https://material.angular.io/',
         src: require("../assets/icons/angular-material-logo.svg")
     },
     {
         title: 'React',
+        link: 'https://reactjs.org/',
         src: require("../assets/icons/react.svg")
     },
     {
         title: 'React Native',
+        link: 'https://reactnative.dev/',
         src: require("../assets/icons/react-native.svg")
     },
     {
         title: 'React Material UI',
+        link: 'https://material-ui.com/',
         src: require("../assets/icons/material-ui.svg")
     },
     {
         title: 'Framer motion',
+        link: 'https://www.framer.com/motion/',
         src: require("../assets/icons/framer-motion.svg")
     },
     {
         title: 'Styled Components',
+        link: 'https://styled-components.com/',
         src: require("../assets/icons/styled-components.png")
     },
     {
         title: 'p5.js',
+        link: "https://p5js.org/",
         src: require("../assets/icons/p5-sq-reverse-filled.png")
     },
     {
         title: 'Leaflet',
+        link: 'https://leafletjs.com/',
         src: require("../assets/icons/leaflet.png")
     },
     {
@@ -167,6 +178,7 @@ export const homePageIcons = [
     },
     {
         title: 'Netlify',
+        link: 'https://www.netlify.com/',
         src: require("../assets/icons/netlify.png")
     }
 ]
