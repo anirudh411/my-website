@@ -6,8 +6,11 @@ const BaseInput = styled.input`
   width: 100%;
   color: ${props => props.theme.palette.primary.main};
   border:1px solid ${props => props.theme.palette.primary.main} ;
-  //background:${props => props.theme.palette.primary.light} ;
+  background:${props => props.theme.background.default} ;
   border-radius: 3px;
+  ::placeholder {
+  color:${props => props.theme.palette.primary.main} ;
+  }
   :focus {
     outline: none;
     border:3px solid ${props => props.theme.palette.primary.main} ;
