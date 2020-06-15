@@ -15,7 +15,6 @@ const Nav = styled(motion.nav)`
 	justify-content: space-between;
 	position:sticky;
 	font-size: 1rem;
-    background: ${props => props.theme.background.default};
     
    &.open {
       
@@ -51,6 +50,7 @@ const Nav = styled(motion.nav)`
         position: fixed;
         z-index: 4;
         top: 0;
+        background: ${props => props.theme.background.default};
     }
     
     button {

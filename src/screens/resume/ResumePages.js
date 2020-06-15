@@ -160,11 +160,15 @@ const ResumeContainer = ({children, data}) => {
     if (data) {
         return <ResumeContext.Provider value={data}>
             <div className="row">
-                <div className="col-12 col-md-2  d-flex flex-column">
-                    <Button animate={{x: 0, y: 0}} initial={{y: -100}} transition={{when: 'beforeChildren'}} outlined
+                <div className="col-4 ml-auto d-flex justify-content-end">
+                    <Button animate={{x: 0, y: 0}} initial={{y: -100}}
+                            transition={{when: 'beforeChildren'}}
+                            outlined
+                            className="my-4"
                             onClick={async () => window.open(require("../../assets/anirudh_resume.pdf"))}>Download</Button>
                 </div>
-                <div id="resume" className="col">
+
+                <div id="resume" className="col-12">
                     <ResumePages/>
                 </div>
             </div>

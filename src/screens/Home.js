@@ -7,7 +7,8 @@ import {StyledText} from "../ui/Text";
 import {motion} from "framer-motion";
 import {homePageIcons} from "../assets/data";
 import {tapAnimation, hoverAnimation} from "./resume/utils";
-import {DELAY_PER_CHILDREN_IN_SEC} from "../constants";
+import {DELAY_PER_CHILDREN_IN_SEC, TWITTER_URL} from "../constants";
+import {Twitter} from "../ui/button";
 
 
 function Home() {
@@ -94,8 +95,11 @@ export function LandingPage() {
                                 as={link ? 'a' : 'p'}>{title}</StyledText>
                 </div>)}
             </motion.div>
-
-
+            <motion.div variants={variants} className="col-sm-12 justify-content-center my-4 d-flex flex-wrap">
+                Lets create something. You can find me on &nbsp;<a href={TWITTER_URL}> twitter</a> &nbsp; or drop a
+                message
+                below.
+            </motion.div>
         </motion.div>
     )
 }
