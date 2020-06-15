@@ -7,8 +7,8 @@ const getMediaElement = ({type, data}, title) => {
         case 'image':
             return < motion.img
                 transition={{originX: 0}}
-                whileTap={{scale: 2, originY: 0, marginRight: 10, zIndex: 999, marginLeft: 10}}
-                whileHover={{scale: 2, oirginY: 0, marginRight: 10, zIndex: 999, marginLeft: 10}}
+                whileTap={{scale: 2, marginRight: 10, zIndex: 999, marginLeft: 10}}
+                whileHover={{scale: 2, marginRight: 10, zIndex: 999, marginLeft: 10}}
                 src={data[0]} alt={title}
                 style={{zIndex: 2}}
             />
