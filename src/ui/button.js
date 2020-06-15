@@ -1,20 +1,15 @@
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 import React from "react";
 
 const handleBackground = (props) => {
-	if (props.outlined) return `transparent`;
-	if (props.secondary)
-		return props.theme.button.secondary.fill;
-	if (props.success) {
-		return props.theme.button.success.fill;
-	}
-
-	else return props.theme.button.primary.fill;
+    if (props.outlined) return `transparent`;
+    if (props.secondary)
+        return props.theme.button.secondary.fill;
+    if (props.success) {
+        return props.theme.button.success.fill;
+    } else return props.theme.button.primary.fill;
 };
-
-
-
 
 export const ButtonInner = styled(motion.button)`
 		min-width:fit-content;
@@ -34,8 +29,8 @@ export const ButtonInner = styled(motion.button)`
 		}
 `;
 
-export const Button = React.forwardRef(({ children, ...rest }, ref) =>
-	<ButtonInner {...rest} whileTap={{ scale: 0.98 }} ref={ref}>
-		{children}
-	</ButtonInner>)
+export const Button = React.forwardRef(({children, ...rest}, ref) =>
+    <ButtonInner {...rest} whileTap={{scale: 0.98}} ref={ref}>
+        {children}
+    </ButtonInner>)
 

@@ -44,7 +44,7 @@ function ActivityCard({index, date, title = '', link = '', technologies = [], de
                 </h5>
             </motion.div>
             <div className="row">
-                <div className="col-12 d-flex col-md-4" style={{zIndex: 2}}>
+                <div className="col-12 d-flex col-md-4">
                     {media}
                 </div>
                 <div className="col-12 col-md-8 ">

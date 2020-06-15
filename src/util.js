@@ -2,13 +2,15 @@ import {motion} from "framer-motion";
 import React from "react";
 
 const getMediaElement = ({type, data}, title) => {
-    console.log(title);
     switch (type) {
         case 'image':
             return < motion.img
+                transition={{originX: 0}}
                 whileTap={{scale: 2, marginRight: 10, zIndex: 999, marginLeft: 10}}
                 whileHover={{scale: 2, marginRight: 10, zIndex: 999, marginLeft: 10}}
-                src={data[0]} alt={title}/>
+                src={data[0]} alt={title}
+                style={{zIndex: 2}}
+            />
 
         case 'iframe':
             return (
