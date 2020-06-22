@@ -44,7 +44,7 @@ export const Progress = ({maxValue, index}) => {
         progressRef.current.addEventListener("animationend", () => {
             progressRef.current.style.width = handleProps({limit: maxValue});
         })
-    }, []);
+    }, [maxValue,progressRef]);
 
     return (
         <ProgressBar animate>

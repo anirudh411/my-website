@@ -8,7 +8,6 @@ import {motion} from "framer-motion";
 import {homePageIcons} from "../assets/data";
 import {tapAnimation, hoverAnimation} from "./resume/utils";
 import {DELAY_PER_CHILDREN_IN_SEC, TWITTER_URL} from "../constants";
-import {Twitter} from "../ui/button";
 
 
 function Home() {
@@ -55,7 +54,7 @@ export function LandingPage() {
         hidden: {opacity: 0.00001, y: '-1rem', letterSpacing: 'normal'},
 
     }
-    const ref = React.useRef('home');
+    // const ref = React.useRef('home');
     return (
         <motion.div variants={container}
                     initial="hidden"

@@ -10,22 +10,22 @@ import {motion} from "framer-motion";
 import {DELAY_PER_CHILDREN_IN_SEC} from "../../constants";
 
 const ResumeContext = React.createContext();
-
-
-function lastDataIndex(n) {
-    let count = 0;
-    let pageIndex = [0];
-    for (let i = 0; i < data.length; i++) {
-        let item = data[i];
-        count = count + item.text.reduce((a, c) => a + c.split(" ").length, 0);
-        if (count > n) {
-            pageIndex.push(i);
-            count = 0;
-        }
-    }
-    pageIndex.push(data.length);
-    return pageIndex;
-}
+//
+//
+// function lastDataIndex(n) {
+//     let count = 0;
+//     let pageIndex = [0];
+//     for (let i = 0; i < data.length; i++) {
+//         let item = data[i];
+//         count = count + item.text.reduce((a, c) => a + c.split(" ").length, 0);
+//         if (count > n) {
+//             pageIndex.push(i);
+//             count = 0;
+//         }
+//     }
+//     pageIndex.push(data.length);
+//     return pageIndex;
+// }
 
 function Text({text}) {
 
@@ -49,7 +49,7 @@ function Text({text}) {
 }
 
 function ResumeElements(item) {
-    const textClassNames = item.fontWeight ? 'font-weight-bold' : '';
+    // const textClassNames = item.fontWeight ? 'font-weight-bold' : '';
     switch (item.type) {
         case "h1":
             return <div className="row flex-column">

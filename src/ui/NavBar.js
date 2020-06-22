@@ -6,7 +6,7 @@ import {TOGGLE_THEME} from "../reducers/consntants";
 import useLocalStorage from "../hooks/useLocalStorage";
 import {device} from "./css/util";
 import {motion} from "framer-motion";
-import {Button, ButtonInner} from "./button";
+import {ButtonInner} from "./button";
 import {tapAnimation, hoverAnimation} from "../screens/resume/utils";
 
 const Nav = styled(motion.nav)`
@@ -109,7 +109,7 @@ const Nav = styled(motion.nav)`
 			
 			}
 			
-			a {
+			a ,button,span,div{
 			    padding: .5rem .7rem;
 				text-decoration: none;
 				font-weight: 400;
@@ -168,7 +168,8 @@ export default ({links}) => {
                     onClick={() => {
                         setDarkMode(mode => !mode);
                         dispatch({type: TOGGLE_THEME, payload: inDarkMode})
-                    }}><a>Toggle Theme</a>
+                    }}>
+                    <div>Toggle Theme</div>
                 </motion.li>
             </motion.ul>
             <ButtonInner animate onClick={() => setOpen(open => !open)} className="d-md-none d-flex">

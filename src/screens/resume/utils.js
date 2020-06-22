@@ -1,5 +1,3 @@
-import {motion} from "framer-motion";
-import React from "react";
 
 function getMinimumVisibleKeyPathPerPage(obj, maximum) {
     let count = 0;
