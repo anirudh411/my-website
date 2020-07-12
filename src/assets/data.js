@@ -320,11 +320,22 @@ const technologies = {
     },
     P5: {
         name: "p5.js"
+    },
+    REACT: {
+        name: 'react.js'
     }
 }
 
 
 export const activites = [
+    {
+        date: 'July, 2020',
+        title: 'React ui widgets with framer motion',
+        description: ['Framer Motion : An open source React library to power production-ready animations. Design fluid animations for the web, across desktop and mobile'],
+        link: 'https://codesandbox.io/s/framer-motion-ui-94u28?file=/src/components/Carousal/index.js',
+        technologies: [technologies.REACT],
+        media: {},
+    },
     {
         date: 'April, 2020 - May, 2020',
         title: 'SaniTech Website',

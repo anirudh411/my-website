@@ -28,9 +28,9 @@ function ActivityCard({index, date, title = '', link = '', technologies = [], de
     const variants = {
         visible: {opacity: 1, y: '-2.2rem', x: '-1rem'},
         hidden: {opacity: 0},
-
     }
 
+    console.log(media);
 
     return (
         <ActivityCardContainer className='mb-5'>
@@ -44,10 +44,10 @@ function ActivityCard({index, date, title = '', link = '', technologies = [], de
                 </h5>
             </motion.div>
             <div className="row">
-                <div className="col-12 d-flex col-md-4">
+                {media&& <div className="col-12 d-flex col-md-4">
                     {media}
-                </div>
-                <div className="col-12 col-md-8 ">
+                </div>}
+                <div className="col-12 col-md ">
                     <div className="content p-md-0  ">
                         <h2 className="font-weight-light">{title}</h2>
                         {description.map((p, i) => <p key={i} className='description'>{p}</p>)}
