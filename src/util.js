@@ -2,7 +2,6 @@ import {motion} from "framer-motion";
 import React from "react";
 
 const getMediaElement = ({type, data}, title) => {
-   // if()
     switch (type) {
         case 'image':
             return < motion.img

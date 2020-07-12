@@ -327,7 +327,7 @@ const technologies = {
 }
 
 
-export const activites = [
+export const activities = [
     {
         date: 'July, 2020',
         title: 'React ui widgets with framer motion',

@@ -1,7 +1,7 @@
 import React from "react";
 import {StyledText} from "../../ui/Text";
 import {motion} from "framer-motion";
-import {activites} from "../../assets/data";
+import {activities} from "../../assets/data";
 import {ActivityCardContainer} from "../../ui/components/Card";
 import {getMediaElement} from "../../util";
 import {DELAY_PER_CHILDREN_IN_SEC} from "./../../constants/index"
@@ -15,7 +15,7 @@ function Activity() {
 
 
 function ActivityList() {
-    return activites.map((activity, index) => (
+    return activities.map((activity, index) => (
         <ActivityCard key={index}
                       {...activity}
                       index={index}
@@ -29,9 +29,6 @@ function ActivityCard({index, date, title = '', link = '', technologies = [], de
         visible: {opacity: 1, y: '-2.2rem', x: '-1rem'},
         hidden: {opacity: 0},
     }
-
-    console.log(media);
-
     return (
         <ActivityCardContainer className='mb-5'>
             <motion.div style={{position: 'absolute'}}
@@ -44,7 +41,7 @@ function ActivityCard({index, date, title = '', link = '', technologies = [], de
                 </h5>
             </motion.div>
             <div className="row">
-                {media&& <div className="col-12 d-flex col-md-4">
+                {media && <div className="col-12 d-flex col-md-4">
                     {media}
                 </div>}
                 <div className="col-12 col-md ">
