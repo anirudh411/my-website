@@ -136,6 +136,11 @@ export const homePageIcons = [
         src: require("../assets/icons/react-native.svg")
     },
     {
+        title: 'React Router',
+        src: require("../assets/icons/react-router.png"),
+        link: 'https://reactrouter.com/'
+    },
+    {
         title: 'React Material UI',
         link: 'https://material-ui.com/',
         src: require("../assets/icons/material-ui.svg")
@@ -229,6 +234,22 @@ export const data = [
     },
     {
         type: 'h4',
+        text: ['2020/06-Current', '[Tribal Swasthya. Tribal Health & Nutrition Portal ](https://stgmota.dhwaniris.in/)']
+    },
+    {
+        type: 'p',
+        fontWeight: 'bold',
+        text: [
+            '<b>Knowledge Management for Tribal Health and Nutrition</b>',
+            'Worked on multi level Heatmaps, charts(using leaflet.js and chart.js).',
+            'Implemented various pages and features.',
+            'Built in <b>React ecosystem</b> (react, react-router, framer-motion).'
+        ]
+
+    },
+
+    {
+        type: 'h4',
         text: ['2020/02-2020/06', 'MForm Web App']
     },
     {
@@ -238,7 +259,7 @@ export const data = [
             'A tool just like <b>google forms</b> where user can submit responses to multiple forms assigned to him/her.',
             'Support for multiple types of questions types like select,checkbox,image,video,audio, nested forms,etc with complex restriction,validations and skip logic.',
             'Configurable theming.',
-            'Build in <b>React ecosystem</b> (react, react-router,react-material-ui).'
+            'Built in <b>React ecosystem</b> (react, react-router, react-material-ui).'
         ]
 
     },
