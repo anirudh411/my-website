@@ -1,5 +1,5 @@
-import {createGlobalStyle} from "styled-components";
-import {ThemeProvider} from "./theme-context";
+import { createGlobalStyle } from "styled-components";
+import { ThemeProvider } from "./theme-context";
 import React from "react";
 
 const GlobalStyle = createGlobalStyle`
@@ -33,12 +33,12 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 
-function GlobalStyleProvider({children}) {
-    return (
-        <ThemeProvider>
-            <GlobalStyle/>
-            {children}
-        </ThemeProvider>);
+function GlobalStyleProvider({ children }) {
+  return (
+    <ThemeProvider>
+      <GlobalStyle />
+      {children}
+    </ThemeProvider>);
 
 }
 

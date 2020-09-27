@@ -210,9 +210,26 @@ export const data = [
     {
         type: 'h4',
         text: [
-            '2018-Present',
+            'July, 2020 - Present',
             'Frontend Developer',
-            'Dhwani Rural Information System'
+            '[Grappus](https://grappus.com/ )'
+        ]
+    },
+    {
+        type: 'p',
+        fontWeight: 'bold',
+        text: [
+            '<b><i>Responsibilities :</i></b>',
+            'Implemeting new features and functionalities.',
+            'Build scalable and client facing apps using React Native.',
+        ]
+    },
+    {
+        type: 'h4',
+        text: [
+            '2018 - July, 2020',
+            'Frontend Developer',
+            '[Dhwani Rural Information System](https://dhwaniris.in )'
         ]
     },
     {
@@ -234,7 +251,7 @@ export const data = [
     },
     {
         type: 'h4',
-        text: ['2020/06-Current', '[Tribal Swasthya. Tribal Health & Nutrition Portal ](https://stgmota.dhwaniris.in/)']
+        text: ['June, 2020 - Current', '[Tribal Swasthya. Tribal Health & Nutrition Portal ](https://stgmota.dhwaniris.in/)']
     },
     {
         type: 'p',
@@ -250,7 +267,7 @@ export const data = [
 
     {
         type: 'h4',
-        text: ['2020/02-2020/06', 'MForm Web App']
+        text: ['Feb, 2020 - June, 2020', 'MForm Web App']
     },
     {
         type: 'p',
@@ -267,7 +284,7 @@ export const data = [
 
     {
         type: 'h4',
-        text: ['2019/07-2020/02', '[City Finance (Angular) ](https://democityfinance.dhwaniris.in/)'],
+        text: ['July, 2019 - Feb, 2020', '[City Finance (Angular) ](https://democityfinance.dhwaniris.in/)'],
         link: ''
     },
     {
@@ -299,7 +316,7 @@ export const data = [
     },
     {
         type: 'h4',
-        text: ['2018/10-2019/07', 'Delta Development Corridor (Angular) :'],
+        text: ['October, 2018 - July, 2019', 'Delta Development Corridor (Angular) :'],
     },
     {
         type: "p",
@@ -317,7 +334,7 @@ export const data = [
     },
     {
         type: 'h4',
-        text: ['2018/7-2018/10', 'Google Internet Saathi (Angular)'],
+        text: ['July, 2018 - October, 2018', 'Google Internet Saathi (Angular)'],
     },
     {
         type: "p",
