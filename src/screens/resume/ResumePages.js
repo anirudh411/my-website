@@ -43,7 +43,7 @@ function Text({text}) {
         body = <a title={simpleText} rel="noopener noreferrer" target="_blank"
                   href={link}>{simpleText} </a>;
     } else {
-        body = <StyledText dangerouslySetInnerHTML={{__html: simpleText}}/>;
+        body = <StyledText  dangerouslySetInnerHTML={{__html: simpleText}}/>;
     }
     return body;
 }
@@ -96,7 +96,7 @@ function ResumeElements(item) {
 }
 
 export const ResumePages = () => {
-    return <Paper className="row resume">
+    return <Paper className="row resume p-2 p-md-4">
         <div className="col-12 col-lg-8">
             <main>
                 {data.map((item, index) => <ResumeElements key={index} {...item}/>)}

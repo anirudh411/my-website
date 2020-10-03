@@ -221,15 +221,18 @@ export const data = [
         text: [
             '<b><i>Responsibilities :</i></b>',
             'Implemeting new features and functionalities.',
-            'Build scalable and client facing apps using React Native.',
+            'Build scalable and consumer facing apps using React Native.',
+            'Build re-usable components to facilitate development across projects'
+
         ]
     },
     {
         type: 'h4',
         text: [
-            '2018 - July, 2020',
+            'June, 2018 - July, 2020',
             'Frontend Developer',
-            '[Dhwani Rural Information System](https://dhwaniris.in )'
+            '[Dhwani Rural Information System](https://dhwaniris.in )',
+            'Build re-usable components to facilitate development across projects'
         ]
     },
     {
@@ -251,7 +254,22 @@ export const data = [
     },
     {
         type: 'h4',
-        text: ['June, 2020 - Current', '[Tribal Swasthya. Tribal Health & Nutrition Portal ](https://stgmota.dhwaniris.in/)']
+        text: ['August, 2020 - Current', '[Asteride (React Native) ](https://apps.apple.com/in/app/asteride/id1527740977 )']
+    },
+    {
+        type: 'p',
+        fontWeight: 'bold',
+        text: [
+            '<b>An app designed exclusively for riders, by riders around the world.</b>',
+            'Worked on various features and modules on the app.',
+            'Integrated PubNub chat.',
+            'Made sure that the app works consistently on both ios an Android platforms.'
+        ]
+
+    },
+    {
+        type: 'h4',
+        text: ['June, 2020 - July, 2020', '[Tribal Swasthya. Tribal Health & Nutrition Portal ](https://stgmota.dhwaniris.in/)']
     },
     {
         type: 'p',
