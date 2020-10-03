@@ -232,7 +232,6 @@ export const data = [
             'June, 2018 - July, 2020',
             'Frontend Developer',
             '[Dhwani Rural Information System](https://dhwaniris.in )',
-            'Build re-usable components to facilitate development across projects'
         ]
     },
     {
