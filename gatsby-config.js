@@ -1,14 +1,16 @@
 module.exports = {
   siteMetadata: {
-    title: "personal website v2",
+    title: "Anirudh's  Personal Website",
+    description:
+      "Hey.. Welcome to my website. I am a javascript developer. Feel free to get in touch",
   },
   plugins: [
-    {
-      resolve: "gatsby-plugin-google-analytics",
-      options: {
-        trackingId: "",
-      },
-    },
+    // {
+    //   resolve: "gatsby-plugin-google-analytics",
+    //   options: {
+    //     trackingId: "",
+    //   },
+    // },
     "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
