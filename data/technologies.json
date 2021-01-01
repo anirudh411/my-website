@@ -1,0 +1,28 @@
+{
+  "technologies": [
+    {
+      "title": "Html",
+      "image": "../src/images/html-5.svg"
+    },
+    {
+      "title": "Javascript",
+      "image": "../src/images/javascript.svg"
+    },
+    {
+      "title": "Typescript",
+      "image": "../src/images/typescript.svg"
+    },
+    {
+      "title": "React",
+      "image": "../src/images/react.svg"
+    },
+    {
+      "title": "React Native",
+      "image": "../src/images/react-native.svg"
+    },
+    {
+      "title": "Framer Motion",
+      "image": "../src/images/framer-motion.svg"
+    }
+  ]
+}

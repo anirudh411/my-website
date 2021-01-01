@@ -29,6 +29,7 @@ module.exports = {
 		},
 		"gatsby-plugin-mdx",
 		"gatsby-transformer-sharp",
+		"gatsby-transformer-json",
 		{
 			resolve: "gatsby-source-filesystem",
 			options: {
@@ -36,6 +37,14 @@ module.exports = {
 				path: "./src/images/",
 			},
 			__key: "images",
+		},
+		{
+			resolve: "gatsby-source-filesystem",
+			options: {
+				name: "data",
+				path: "./data/",
+			},
+			__key: "data",
 		},
 		{
 			resolve: "gatsby-source-filesystem",
