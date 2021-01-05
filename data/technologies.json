@@ -21,8 +21,40 @@
       "image": "../src/images/react-native.svg"
     },
     {
+      "title": "Angular",
+      "image": "../src/images/angular.svg"
+    },
+    {
+      "title": "Gatsby",
+      "image": "../src/images/icon.png"
+    },
+    {
+      "title": "Next.js",
+      "image": "../src/images/next.png"
+    },
+    {
       "title": "Framer Motion",
       "image": "../src/images/framer-motion.svg"
+    },
+    {
+      "title": "p5",
+      "image": "../src/images/p5.png"
+    },
+    {
+      "title": "Leaflet",
+      "image": "../src/images/leaflet.png"
+    },
+    {
+      "title": "Styled Components",
+      "image": "../src/images/styled-components.png"
+    },
+    {
+      "title": "Git",
+      "image": "../src/images/git.svg"
+    },
+    {
+      "title": "Netlify",
+      "image": "../src/images/netlify.png"
     }
   ]
 }

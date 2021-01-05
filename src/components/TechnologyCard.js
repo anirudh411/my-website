@@ -1,17 +1,32 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { LINK_HOVER_ZOOM } from "../utils/constants";
 
-export default function TechnologyCard({ render = null, technology = {} }) {
-	if (render) return render;
+export default function TechnologyCard({
+	render = null,
+	technology = {
+		title: "",
+		image: {
+			publicURL: "",
+		},
+	},
+}) {
+	if (render) return render(technology);
 	return (
-		<div className="xl:w-1/6 lg:w-1/5 md:w-1/4 sm:w-1/3 w-1/2 flex flex-col">
+		<div className="xl:w-1/6 lg:w-1/5 md:w-1/4 w-1/3 my-5 flex flex-col cursor-pointer">
 			<motion.img
+				whileHover={{
+					opacity: 1,
+					scale: LINK_HOVER_ZOOM,
+				}}
 				drag
-				className="w-full h-32"
+				className="min-w-16 max-h-16 opacity-100 2xl:opacity-50 object-contain"
 				src={technology?.image?.publicURL}
 				alt={technology?.title}
 			/>
-			<p className="text-center">{technology.title}</p>
+			<a data-text={technology.title} className="text-center mt-5">
+				{technology.title}
+			</a>
 		</div>
 	);
 }

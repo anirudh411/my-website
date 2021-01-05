@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
+import Typewriter from "typewriter-effect";
 
 const Introduction = () => (
 	<div className="flex mt-6 flex-col items-center">
@@ -22,7 +23,17 @@ const Introduction = () => (
 			animate={{ x: 0 }}
 			className="text-3xl my-4 dark:text-green-500 text-green-700 text-center"
 		>
-			I develop things for the web.
+			I develop things for the
+			<Typewriter
+				className={"inline"}
+				options={{
+					skipAddStyles: true,
+					wrapperClassName: "inline",
+					strings: ["web.", "mobile."],
+					autoStart: true,
+					loop: true,
+				}}
+			/>{" "}
 		</motion.h3>
 		<motion.p
 			initial={{
