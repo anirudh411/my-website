@@ -2,58 +2,72 @@
   "technologies": [
     {
       "title": "Html",
+      "href": "",
       "image": "../src/images/html-5.svg"
     },
     {
       "title": "Javascript",
+      "href": "",
       "image": "../src/images/javascript.svg"
     },
     {
       "title": "Typescript",
+      "href": "",
       "image": "../src/images/typescript.svg"
     },
     {
       "title": "React",
+      "href": "",
       "image": "../src/images/react.svg"
     },
     {
       "title": "React Native",
+      "href": "",
       "image": "../src/images/react-native.svg"
     },
     {
       "title": "Angular",
+      "href": "",
       "image": "../src/images/angular.svg"
     },
     {
       "title": "Gatsby",
+      "href": "",
       "image": "../src/images/icon.png"
     },
     {
       "title": "Next.js",
+      "href": "",
       "image": "../src/images/next.png"
     },
     {
       "title": "Framer Motion",
+      "href": "",
       "image": "../src/images/framer-motion.svg"
     },
     {
       "title": "p5",
+      "href": "",
       "image": "../src/images/p5.png"
     },
     {
       "title": "Leaflet",
+      "href": "",
       "image": "../src/images/leaflet.png"
     },
     {
       "title": "Styled Components",
+      "href": "",
       "image": "../src/images/styled-components.png"
     },
     {
       "title": "Git",
+      "href": "",
       "image": "../src/images/git.svg"
     },
     {
       "title": "Netlify",
+      "href": "",
       "image": "../src/images/netlify.png"
     }
   ]

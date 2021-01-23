@@ -38,11 +38,11 @@ export default ({ pageTitle = "", children }) => {
 									whileTap={{
 										scale: LINK_TAP_SHRINK,
 									}}
-									className="mx-2 font-medium text-lg font-mono relative transition transform cursor-pointer disabled:opacity-50 text-gray-900 dark:text-gray-100	rounded-md	hover:font-bold hover:cursor-pointer hover:bg-purple-200 hover:text-black "
+									className="mx-2 font-medium text-lg font-mono relative transition transform cursor-pointer disabled:opacity-50 text-gray-900 dark:text-gray-100	rounded-md hover:font-bold hover:cursor-pointer hover:bg-primary-100 hover:text-primary-900 "
 								>
 									<Link
 										className={"px-8 py-2 inline-block"}
-										activeClassName="dark:text-purple-500 text-purple-700 font-bold border-solid border-b-4 border-l-0 border-purple-800 dark:border-purple-500"
+										activeClassName="dark:text-primary-100 dark:hover:text-primary-900 text-primary-700 font-bold border-solid border-b-4 border-l-0 border-primary-800 dark:border-primary-100"
 										to={link.href}
 									>
 										{link.title}

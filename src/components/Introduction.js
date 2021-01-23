@@ -21,7 +21,7 @@ const Introduction = () => (
 				x: -10,
 			}}
 			animate={{ x: 0 }}
-			className="text-3xl my-4 dark:text-green-500 text-green-700 text-center"
+			className="text-3xl my-4 font-bold dark:text-secondary-500 text-secondary-700 text-center"
 		>
 			I develop things for the
 			<Typewriter
@@ -33,6 +33,7 @@ const Introduction = () => (
 					autoStart: true,
 					loop: true,
 				}}
+				onInit={() => null}
 			/>{" "}
 		</motion.h3>
 		<motion.p
