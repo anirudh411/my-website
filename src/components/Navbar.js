@@ -15,7 +15,7 @@ const navLinks = [
 const NavBar = () => (
 	<nav className=" max-w-7xl w-full  mx-auto flex flex-row md:flex-col">
 		<AnimateSharedLayout>
-			<ul key={"nav-list"} className="flex justify-end w-full pt-4">
+			<ul className="flex flex-col md:flex-row justify-end w-full lg:pt-4">
 				{navLinks.map((link, i) => (
 					<motion.li
 						key={link.href}
@@ -27,11 +27,11 @@ const NavBar = () => (
 						whileTap={{
 							scale: LINK_TAP_SHRINK,
 						}}
-						className="mx-2 font-medium text-lg font-mono relative transition transform cursor-pointer disabled:opacity-50 text-gray-900 dark:text-gray-100	rounded-md hover:font-bold hover:cursor-pointer hover:bg-primary-100 hover:text-primary-900 "
+						className="mx-0 lg:mx-2 font-medium text-lg font-mono relative transition transform cursor-pointer disabled:opacity-50 text-gray-900 dark:text-gray-100	rounded-md lg:hover:font-bold hover:cursor-pointer "
 					>
 						<Link
 							className={"px-8 py-2 inline-block"}
-							activeClassName="dark:text-primary-100 dark:hover:text-primary-90s0 text-primary-700 font-bold border-solid border-b-4 border-l-0 border-primary-800 dark:border-primary-100"
+							activeClassName="dark:text-primary-100  dark:lg:hover:text-primary-900 text-primary-700 font-bold border-solid  border-l-4 lg:border-l-0 lg:border-b-4 border-l-0 border-primary-800 dark:border-primary-100"
 							to={link.href}
 						>
 							{link.title}

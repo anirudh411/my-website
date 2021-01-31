@@ -67,6 +67,9 @@ module.exports = {
 			gray: colors.gray,
 			purple: colors.purple,
 		},
+		fontFamily: {
+			dancing: ["Dancing Script", "sans-serif"],
+		},
 		extend: {},
 	},
 	variants: {

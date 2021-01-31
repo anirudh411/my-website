@@ -20,7 +20,7 @@ export default ({ pageTitle = "", children }) => {
 				<main className="max-w-7xl w-full flex-1 h-auto mx-auto flex flex-row md:flex-col">
 					{children}
 				</main>
-				<Footer />
+				<Footer key='footer' />
 			</div>
 		</>
 	);

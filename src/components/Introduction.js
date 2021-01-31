@@ -4,9 +4,9 @@ import Typewriter from "typewriter-effect";
 
 const Introduction = () => (
 	<div className="flex mt-6 flex-col items-center">
-		<p>Hi , I am</p>
+		<p className="font-dancing font-2xl">Hi , I am</p>
 		<motion.h1
-			className="text-5xl dark:text-purple-500 text-purple-700"
+			className="text-5xl font-dancing dark:text-purple-500 text-purple-700"
 			initial={{
 				x: 10,
 			}}
@@ -21,7 +21,7 @@ const Introduction = () => (
 				x: -10,
 			}}
 			animate={{ x: 0 }}
-			className="text-3xl my-4 font-bold dark:text-secondary-500 text-secondary-700 text-center"
+			className="text-4xl my-4 font-dancing font-bold dark:text-secondary-500 text-secondary-700 text-center"
 		>
 			I develop things for the
 			<Typewriter
@@ -49,7 +49,7 @@ const Introduction = () => (
 				opacity: 1,
 				rotateX: 0,
 			}}
-			className="mt-6 text-2xl text-center"
+			className="mt-6 font-dancing tracking-wide text-3xl text-center"
 		>
 			Tools and technologies that I have worked with so far
 		</motion.p>
