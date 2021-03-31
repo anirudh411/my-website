@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import Footer from "./Footer";
 import NavBar from "./Navbar";
 
-export default ({ pageTitle = "", children }) => {
+export default React.memo(({ pageTitle = "", children }) => {
 	const { title, description } = useSiteMetadata();
 	return (
 		<>
@@ -20,8 +20,8 @@ export default ({ pageTitle = "", children }) => {
 				<main className="max-w-7xl w-full flex-1 h-auto mx-auto flex flex-row md:flex-col">
 					{children}
 				</main>
-				<Footer key='footer' />
+				{/*<Footer key="footer" />*/}
 			</div>
 		</>
 	);
-};
+});

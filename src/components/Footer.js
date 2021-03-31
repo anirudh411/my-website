@@ -8,7 +8,7 @@ const FooterBody = ({ children }) => (
 const Footer = () => {
 	return (
 		<footer className="w-full mt-8 p-8 bg-gradient-to-r from-primary-700 to-primary-900 justify-self-end h-64 flex">
-			<FooterBody children={<ContactForm key={"contact-form"} />} />
+			{/*<FooterBody children={<ContactForm key={"contact-form"} />} />*/}
 		</footer>
 	);
 };

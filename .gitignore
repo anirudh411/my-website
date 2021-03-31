@@ -2,3 +2,5 @@ node_modules/
 .idea
 .cache/
 public
+package-lock.json
+.env
