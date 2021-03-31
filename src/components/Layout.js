@@ -1,7 +1,6 @@
 import React from "react";
 import useSiteMetadata from "../hooks/use-sitemetadata";
 import { Helmet } from "react-helmet";
-import Footer from "./Footer";
 import NavBar from "./Navbar";
 
 export default React.memo(({ pageTitle = "", children }) => {
