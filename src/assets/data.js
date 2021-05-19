@@ -222,7 +222,6 @@ export const data = [
             '<b><i>Responsibilities :</i></b>',
             'Implementing new features and functionalities.',
             'Build scalable and consumer facing apps using React,React Native.',
-            'Build re-usable components to facilitate development across projects.'
 
         ]
     },
