@@ -220,9 +220,8 @@ export const data = [
 		fontWeight: 'bold',
 		text: [
 			'<b><i>Responsibilities :</i></b>',
-			'Implementing new features and functionalities.',
-			'Build scalable and consumer facing apps using React,React Native.',
-			'',
+			'Build scalable, pixel perfect, consumer-facing apps using React, React Native.',
+			'Translating designs and wireframes into reusable code.',
 
 		],
 	},
